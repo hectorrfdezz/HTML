@@ -3,86 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Ejercicios</title>
+    <title>Índice de Ejercicios</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        h1, h2 {
+            color: #2c3e50;
         }
-        nav {
-            background-color: #333;
-            overflow: hidden;
+        ul {
+            list-style-type: none;
         }
-        nav a {
-            color: white;
-            padding: 14px 20px;
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #3498db;
             text-decoration: none;
-            display: inline-block;
         }
-        nav a:hover {
-            background-color: #575757;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #4CAF50;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            margin-top: 30px;
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mis Ejercicios</h1>
-        <p>Índice de ejercicios para mi práctica</p>
-    </header>
+    <h1>Héctor Ramos Fernández</h1>
+    <h2>Lenguaje de Marcas 1 DAW</h2>
 
-    <nav>
-        <a href="#ejercicio1">Ejercicio 1</a>
-        <a href="#ejercicio2">Ejercicio 2</a>
-        <a href="#ejercicio3">Ejercicio 3</a>
-        <a href="#ejercicio4">Ejercicio 4</a>
-    </nav>
+    <h3>TEMA 1: Introducción al lenguaje de marcas</h3>
+    <ul>
+        <li><a href="ejercicio1.html">Ejercicio 1</a></li>
+        <li><a href="ejercicio2.html">Ejercicio 2</a></li>
+    </ul>
 
-    <section id="ejercicio1">
-        <h2>Ejercicio 1: Título del ejercicio</h2>
-        <p>Aquí va la descripción o el contenido completo del ejercicio 1.</p>
-    </section>
-
-    <section id="ejercicio2">
-        <h2>Ejercicio 2: Título del ejercicio</h2>
-        <p>Aquí va la descripción o el contenido completo del ejercicio 2.</p>
-    </section>
-
-    <section id="ejercicio3">
-        <h2>Ejercicio 3: Imagenes</h2>
-        <p>file:///C:/Users/DAW/Documents/HTML%20LGDM/TEMA%202%20HTML/EJ3%20Imagen/ZImagen1.html</p>
-    </section>
-
-    <section id="ejercicio4">
-        <h2>Ejercicio 4: Horario</h2>
-        <p>file:///C:/Users/DAW/Documents/HTML%20LGDM/TEMA%202%20HTML/EJ2%20Tablas/horario.html</p>
-    </section>
+    <h3>TEMA 2: HTML</h3>
+    <ul>
+        <li><a href="ejercicio3.html">Ejercicio 1: Listas</a></li>
+        <li><a href="ejercicio4.html">Ejercicio 2: Horario</a></li>
+    </ul>
 
 </body>
 </html>

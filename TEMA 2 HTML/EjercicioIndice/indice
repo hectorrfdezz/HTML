@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h1></h1>
+=======
+<h1>
+>>>>>>> 6016f244039c0761d98f401569e301ae1eb001e4
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,16 +39,18 @@
 
     <h3>TEMA 1: Introducción al lenguaje de marcas</h3>
     <ul>
-        <li><a href="https://hectorrfdezz.github.io/HTML/XML%20y%20CSS%20LGDM/Ejercicio.xml">Ejercicio 1</a></li>
-        <li><a href="https://hectorrfdezz.github.io/XML%20y%20CSS%20LGDM/ACTIVIDAD4%20XML3.xml">Ejercicio 2</a></li>
+        <li><a href="https://hectorrfdezz.github.io/HTML">Ejercicio 1</a></li>
+        <li><a href="https://hectorrfdezz.github.io/HTML/">Ejercicio 2</a></li>
+
     </ul>
 
     <h3>TEMA 2: HTML</h3>
     <ul>
-        <li><a href="https://hectorrfdezz.github.io">Ejercicio 1: Listas</a></li>
-        <li><a href="https://hectorrfdezz.github.io/HTML%20LGDM/TEMA%202%20HTML/EJ2%20Tablas/horario.html">Ejercicio 2: Horario</a></li>
+        <li><a href="https://hectorrfdezz.github.io/HTML LGDM/TEMA 2 HTML/EJ 3 Imagen/ZImagen1.html">Ejercicio 1: Listas</a></li>
+        <li><a href="https://hectorrfdezz.github.io/HTML LGDM/TEMA 2 HTML/EJ2 Tablas/horario.html">Ejercicio 2: Horario</a></li>
     </ul>
 
 </body>
 </html>
+</h1>
 </h1>

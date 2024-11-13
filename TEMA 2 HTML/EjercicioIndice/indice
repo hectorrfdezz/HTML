@@ -1,4 +1,88 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Ejercicios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mis Ejercicios</h1>
+        <p>Índice de ejercicios para mi práctica</p>
+    </header>
+
+    <nav>
+        <a href="#ejercicio1">Ejercicio 1</a>
+        <a href="#ejercicio2">Ejercicio 2</a>
+        <a href="#ejercicio3">Ejercicio 3</a>
+        <a href="#ejercicio4">Ejercicio 4</a>
+    </nav>
+
+    <section id="ejercicio1">
+        <h2>Ejercicio 1: Título del ejercicio</h2>
+        <p>Aquí va la descripción o el contenido completo del ejercicio 1.</p>
+    </section>
+
+    <section id="ejercicio2">
+        <h2>Ejercicio 2: Título del ejercicio</h2>
+        <p>Aquí va la descripción o el contenido completo del ejercicio 2.</p>
+    </section>
+
+    <section id="ejercicio3">
+        <h2>Ejercicio 3: Imagenes</h2>
+        <p>file:///C:/Users/DAW/Documents/HTML%20LGDM/TEMA%202%20HTML/EJ3%20Imagen/ZImagen1.html</p>
+    </section>
+
+    <section id="ejercicio4">
+        <h2>Ejercicio 4: Horario</h2>
+        <p>file:///C:/Users/DAW/Documents/HTML%20LGDM/TEMA%202%20HTML/EJ2%20Tablas/horario.html</p>
+    </section>
+
+</body>
 </html>

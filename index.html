@@ -7,73 +7,94 @@
     <style>
         /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Verdana', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-            color: #f0f0f0;
-            line-height: 1.6;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Fondo con gradiente de colores */
+            color: #333;
+            line-height: 1.8;
         }
 
-        h1, h2 {
+        h1 {
             text-align: center;
-            color: #e74c3c;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            color: #fff; /* Blanco para contrastar con el fondo colorido */
+            font-size: 3rem; /* Tamaño grande */
+            font-family: 'Helvetica', sans-serif;
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #34495e; /* Un tono oscuro para el subtítulo */
+            font-size: 1.8rem;
+            margin-top: 10px;
+            font-family: 'Helvetica', sans-serif;
         }
 
         h3 {
-            color: #f39c12;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.5rem; /* Aumento el tamaño de las letras de los temas */
         }
 
         /* Navigation List */
         ul {
             list-style-type: none;
             padding: 0;
-            margin: 20px auto;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            margin: 40px auto;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #ddd;
         }
 
         li {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
-            border-radius: 10px;
-            transition: background 0.3s ease, transform 0.2s ease;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            background-color: #ecf0f1;
             text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        li:last-child {
+            border-bottom: none;
         }
 
         li:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
+            background-color: #3498db;
+            transform: scale(1.05);
         }
 
         a {
-            color: #1abc9c;
+            color: #2c3e50;
             text-decoration: none;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #16a085;
-            text-shadow: 0 1px 5px rgba(255, 255, 255, 0.5);
+            color: #fff;
         }
 
         /* Footer Section */
         footer {
             text-align: center;
-            padding: 10px 0;
-            background: #111;
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-top: 20px;
+            padding: 20px 0;
+            background-color: #34495e;
+            color: #ecf0f1;
+            font-size: 1rem;
+            margin-top: 50px;
         }
 
         footer a {
-            color: #3498db;
+            color: #f39c12;
             text-decoration: none;
         }
 
@@ -101,15 +122,14 @@
         <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ4 Frames/ZFrame.html">Ejercicio 4: Frame</a></li>
         <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ5 Formulario/ZFormulario.html">Ejercicio 5: Formulario</a></li>
         <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ6 Botones/ZBotones.html">Ejercicio 6: Caja texto+Botones</a></li>
-        
     </ul>
 
     <footer>
-        &copy; 2024 Héctor Ramos Fernández. Página creada para la asignatura *Lenguaje de Marcas*. 
+        2024 hramfer634@g.educaand.es
+        Página para la asignatura Lenguaje de Marcas. 
         <br>
-        Más información en <a href="https://github.com/hectorrfdezz">GitHub</a>.
+        Más información en <a href="https://github.com/hectorrfdezz">hectorrf.com</a>.
     </footer>
 
 </body>
 </html>
-

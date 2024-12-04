@@ -1,30 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>>Curriculum Vitae</title>
-        <link rel="stylesheet" type="text/css" href="style CV Hector.css">
-        
-    </head>
-    <body>
-        <header>
-            <div class="photo">
-                <img src="IMG_0157.HEIC" alt="foto">
-            </div>
-            <h1>Héctor Ramos</h1>
-            <p class="job title">Desarrollador Web</p>
-        </header>
-        <div class="cv-container">
-            <aside class="sidebar">
-                <section class="section"></section>
-            </aside>
-            <h2>Formación</h2>
-            <p>Sistemas Microinformáticos y Redes (2021)</p>
-            <p>Máster en Marketing Digital (2006 - 2007)</p>
-            <p><h2>Formación</h2>
-                <p>Grado Superior Desarrollo Aplicaciones Web (DAW) (2021 - 2025)</p>
-                <p>Grado Superior en Administración y Finanzas (2015 - 2020)</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Héctor Ramos</title>
+    <style>
+        /* General */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #007acc;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background-color: #007acc;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header .photo img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+
+        .job-title {
+            font-style: italic;
+            font-size: 1.2em;
+        }
+
+        /* CV Container */
+        .cv-container {
+            display: flex;
+            margin: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 30%;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-right: 2px solid #ddd;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 70%;
+            padding: 15px;
+        }
+
+        .main-content section {
+            margin-bottom: 20px;
+        }
+
+        .experience h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .experience p {
+            margin-left: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007acc;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="photo">
+            <img src="IMG_0157.HEIC" alt="Foto de Héctor Ramos">
+        </div>
+        <h1>Héctor Ramos</h1>
+        <p class="job-title">Desarrollador Web</p>
+    </header>
+    <div class="cv-container">
+        <aside class="sidebar">
+            <section class="contact-info">
+                <h2>Contacto</h2>
+                <p>📞 622-94-43-12</p>
+                <p>📧 hramfer634@g.educaand.es</p>
+                <p>📍 Calle La Angelita <br>CP 11500</p>
             </section>
             <section class="additional-info">
                 <h2>Información</h2>
@@ -40,20 +138,19 @@
             <section class="section">
                 <h2>Experiencia</h2>
                 <div class="experience">
-                    <h3>PRACTICAS (2024)</h3>
+                    <h3>Prácticas (2024)</h3>
                     <p>Técnico en comunicaciones.</p>
                 </div>
                 <div class="experience">
-                    <h3>BORCELLE (2010)</h3>
+                    <h3>Borcelle (2010)</h3>
                     <p>Ejecutivo de atención al cliente.</p>
                 </div>
                 <div class="experience">
-                    <h3>FAUJECT (2012-2021)</h3>
+                    <h3>Fauject (2012-2021)</h3>
                     <p>Marketing Manager.</p>
                 </div>
             </section>
-
-            <section class="section">
+            <section>
                 <h2>Herramientas</h2>
                 <ul>
                     <li>Redes Sociales</li>
@@ -61,20 +158,14 @@
                     <li>Edición de video</li>
                 </ul>
             </section>
-
-            <section class="section">
+            <section>
                 <h2>Idiomas</h2>
                 <p>Español, Inglés</p>
             </section>
         </main>
     </div>
     <footer>
-        <section class="contact-info">
-            <h2>Contacto</h2>
-            <p>📞 622-94-43-12</p>
-            <p>📧 hramfer634@g.educaand.es</p>
-            <p>📍 Calle La Angelita <br>CP 11500</p>
-        </section>
+        <p>© 2024 Héctor Ramos Fernández</p>
     </footer>
 </body>
 </html>

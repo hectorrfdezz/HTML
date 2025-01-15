@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    /* Reset CSS */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+}
+
+.container {
+    padding: 20px;
+    height: 100vh;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.item {
+    background: #fb6942;
+    border-radius: 1rem;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.first {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  
+    /* Shorthand */
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.last {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+  
+    /* Shorthand */
+    grid-column: 1 / 4;
+    grid-row: 4 / 4;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="item first">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item last">Item 7</div>
+    </div>
+</body>

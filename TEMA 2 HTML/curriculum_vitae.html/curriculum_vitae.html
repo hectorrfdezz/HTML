@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+
+        .header h1 {
+            margin: 15px 0 5px;
+            font-size: 26px;
+            color: #222;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .main {
+            flex: 2;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #444;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .section ul li span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .dark-mode-toggle button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 7px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .dark-mode-toggle button:hover {
+            background-color: #333;
+        }
+
+        .redirect-button {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .redirect-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container" id="contentToDownload">
+        <div class="dark-mode-toggle">
+            <button onclick="toggleDarkMode()">Cambiar modo</button>
+        </div>
+        <div class="header">
+            <img src="fotodni.jpg" alt="Foto de perfil">
+            <h1>Héctor Ramos Fernández</h1>
+            <p>Currículum Vitae</p>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2>Contacto</h2>
+                    <ul>
+                        <li><span>Teléfono:</span> +34 654 64 19 94</li>
+                        <li><span>Email:</span> hectorrf.correo@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>Idiomas</h2>
+                    <ul>
+                        <li><span>Español:</span> Nativo</li>
+                        <li><span>Inglés:</span> B1</li>
+                        <li><span>Italiano:</span> Iniciando</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main">
+                <div class="section">
+                    <h2>Información personal</h2>
+                    <ul>
+                        <li><span>Fecha de nacimiento:</span> 22/04/2006</li>
+                        <li><span>DNI:</span> 45384634E</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Experiencia laboral</h2>
+                    <ul>
+                        <li><span>No existe experiencia laboral actualmente.</span></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Formación académica</h2>
+                    <ul>
+                        <li><span>Grado Superior en Desarrollo de Aplicaciones Web (DAW):</span> IES Mar de Cádiz</li>
+                        <li><span>Bachillerato Tecnológico:</span> IES Safa San Luis</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Habilidades Técnicas</h2>
+                    <ul>
+                        <li><span>Lenguajes de programación:</span> Java, JavaScript, C++, HTML/CSS y SQL.</li>
+                        <li><span>Control de versiones:</span> Git, GitHub.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Habilidades de Comunicación</h2>
+                    <ul>
+                        <li><span>Presentación de ideas:</span> Habilidad para comunicar conceptos.</li>
+                        <li><span>Comunicación interpersonal eficaz:</span> Capacidad para interactuar con diferentes públicos.</li>
+                        <li><span>Negociación:</span> Resolución de conflictos y búsqueda de soluciones.</li>
+                    </ul>
+                </div>
+
+                <a href="https://hectorrfdezz.github.io/HTML/" target="_blank">
+                    <button class="redirect-button">GitHub</button>
+                </a>
+            </div>
+        </div>
+
+        <button onclick="downloadAsImage()">Descargar como JPG</button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            document.body.style.backgroundColor = isDarkMode ? '#333' : '#f4f4f4';
+            document.body.style.color = isDarkMode ? '#f5f5f5' : '#333';
+        }
+
+        function downloadAsImage() {
+            const content = document.getElementById('contentToDownload');
+            html2canvas(content).then(function(canvas) {
+                
+                const link = document.createElement('a');
+                link.download = 'curriculum_vitae.jpg'; 
+                link.href = canvas.toDataURL("image/jpeg", 1.0); 
+                link.click(); 
+            });
+        }
+    </script>
+</body>
+</html>

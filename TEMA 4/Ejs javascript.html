@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Pares e Impares</title>
+    <meta charset="UTF-8">
+    <title>Ingresa números</title>
 </head>
 <body>
-    <p>Introduzca números:</p>
-    <input id="num" type="number">
-    <button onclick="agregar()">Agregar</button>
-    <p id="res"></p>
+    <h1>Ingresa números</h1>
+    <button onclick="ingresarNumeros()">Ingresar números</button>
     <script>
-        let numeros = [];
+        "use strict";
 
-        function agregar() {
-            let valor = document.getElementById("num").value;
-            let n = Number(valor);
-            if (!valor.trim() || n === 0) {
-                mostrarResultado();
-                return;
-            }
-            if (!Number.isInteger(n)) {
-                alert("Ingrese un número válido.");
-                return;
-            }
-            numeros.push(n);
-            document.getElementById("num").value = "";
-            document.getElementById("num").focus();
+        let numeros = new Array(); 
+
+        function esPar(n) {
+            return n % 2 === 0;
         }
+        function ingresarNumeros() {
+            let continuar = true;
 
-        function mostrarResultado() {
-            let pares = numeros.filter(n => n % 2 === 0).length;
-            let impares = numeros.length - pares;
-            document.getElementById("res").innerText = `Array: [${numeros.join(", ")}]
-Pares: ${pares}, Impares: ${impares}`;
+            while (continuar) {
+                let valor = prompt("Ingrese un número (o cancele para terminar):");
+                let n = parseInt(valor);
+
+                if (!isNaN(n)) {
+                    numeros.push(n);
+                }
+
+                continuar = confirm("¿Desea ingresar otro número?");
+            }
+            mostrarResultado();
+        }
+     function mostrarResultado() {
+            let pares = 0, impares = 0;
+            let i = 0;
+
+            while (i < numeros.length) { 
+                if (esPar(numeros[i])) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+                i++;
+            }
+            document.write(`<h2>Resultados</h2>`);
+            document.write(`Array: [${numeros.join(", ")}] <br>`);
+            document.write(`Pares: ${pares}, Impares: ${impares}`);
         }
     </script>
 </body>

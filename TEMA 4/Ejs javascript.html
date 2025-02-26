@@ -1,53 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contar Pares e Impares</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
-        input, button { padding: 10px; margin: 5px; }
-    </style>
+    <title>Pares e Impares</title>
 </head>
 <body>
-
-    <h2>Introduce Números</h2>
-    <input type="number" id="numero" placeholder="Introduce un número">
-    <button onclick="agregarNumero()">Agregar</button>
-    <button onclick="terminar()">Terminar</button>
-    
-    <h3>Números ingresados:</h3>
-    <p id="lista"></p>
-    
-    <h3>Resultado:</h3>
-    <p id="resultado"></p>
-
+    <p>Introduzca números:</p>
+    <input id="num" type="number">
+    <button onclick="agregar()">Agregar</button>
+    <p id="res"></p>
     <script>
         let numeros = [];
 
-        function agregarNumero() {
-            let input = document.getElementById("numero");
-            let valor = parseInt(input.value);
-
-            if (isNaN(valor) || valor === 0) {
-                alert("Número 0 o entrada no válida. Finalizando.");
-                terminar();
+        function agregar() {
+            let valor = document.getElementById("num").value;
+            let n = Number(valor);
+            if (!valor.trim() || n === 0) {
+                mostrarResultado();
                 return;
             }
-
-            numeros.push(valor);
-            document.getElementById("lista").innerText = "Array: [" + numeros.join(", ") + "]";
-            input.value = "";
-            input.focus();
+            if (!Number.isInteger(n)) {
+                alert("Ingrese un número válido.");
+                return;
+            }
+            numeros.push(n);
+            document.getElementById("num").value = "";
+            document.getElementById("num").focus();
         }
 
-        function terminar() {
+        function mostrarResultado() {
             let pares = numeros.filter(n => n % 2 === 0).length;
             let impares = numeros.length - pares;
-
-            document.getElementById("resultado").innerText = `Hay ${pares} números pares y ${impares} números impares.`;
+            document.getElementById("res").innerText = `Array: [${numeros.join(", ")}]
+Pares: ${pares}, Impares: ${impares}`;
         }
     </script>
-
 </body>
 </html>

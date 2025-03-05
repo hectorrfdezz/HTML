@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .caja {
+            width: 200px;
+            height: 100px;
+            background: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <p>Párrafo 4</p>
+
+    <button id="ocultarPares">Ocultar pares</button>
+    <button id="ocultarImpares">Ocultar impares</button>
+    <button id="mostrarPares">Mostrar pares</button>
+    <button id="mostrarImpares">Mostrar impares</button>
+
+    <div class="caja">Pasa el ratón</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#ocultarPares").click(() => $("p:nth-child(even)").hide());
+            $("#ocultarImpares").click(() => $("p:nth-child(odd)").hide());
+            $("#mostrarPares").click(() => $("p:nth-child(even)").show());
+            $("#mostrarImpares").click(() => $("p:nth-child(odd)").show());
+
+            $(".caja").hover(
+                function() { $(this).css("background", "lightgreen"); },
+                function() { $(this).css("background", "lightblue"); }
+            );
+        });
+    </script>
+
+</body>
+</html>

@@ -1,10 +1,166 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <title>
+        Ejercicios JavaScript
+    </title>
+    <style>
+        body {
+            display: block;
+            background-color: rgb(49, 49, 49);
+            font-style: white;
+            padding: 5px;
+            border: solid white;
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-left: 33%;
+            margin-right: 33%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size:xx-large;
+            border: solid white;
+            border-radius: 5px;
+            color: aliceblue;
+            text-shadow: 10px;
+        }
+
+        h2 {
+            margin-top: 10px;
+            color:aliceblue;
+            border: solid;
+            margin-right: 80%;
+            border-radius: 5px;
+        }
+
+        p {
+            margin-top: 10px;
+            color: aliceblue;
+        }
+
+        #btnpar, #btnimpar {
+            background-color: white;
+            font-style: white;
+            display: flexbox;
+            padding: 5px;
+            border:solid rgb(49, 49, 49);
+            border-radius: 5px;
+        }
+    </style>
     <body>
+        <header>
+            <h1>Ejercicios JavaScript</h2>
+        </header>
+        <h2>Ejercicio Sumatorio</h2>
         <script>
-            let una_viable
-            una_variable=42
-            document.write(una_variable)
+            "use strict";
+            let vector_numeros = [];
+            for (let i = 0; i < 100; i++) {
+                vector_numeros.push(Math.floor(Math.random()*100) + 1);
+            }
+            let suma = 0;
+            for (let num of vector_numeros) {
+                suma += num;
+            }
+
+            document.write("<p> -El sumatorio de los 100 numeros es: " + suma + "</p>");
+        </script>
+        <hr>
+        <h2>EJercicio Pares e impares</h2>
+        <script>
+            "use strict"
+            let numeros = [];
+            let par = 0, impar = 0;
+
+            while (true) {
+                let sc = prompt("Introduzca un numero (0 para terminar)")
+                
+                if (sc === null || sc.trim()==="" || isNaN(sc) || Number(sc)===0) {
+                    break;
+                }
+
+                let numero = Number(sc);
+                numeros.push(numero);
+
+                if (numero % 2 === 0) {
+                    par++;
+                }else {
+                    impar++;
+                }
+            }
+
+            if (numeros.length > 0) {
+                document.write("<p>El array de entrada es: " + numeros + "</p>");
+                document.write("<p id=pares>Numeros pares: " + par + "</p>");
+                document.write("<p id=impares>Numeros impares: " + impar + "</p>");
+            }else {
+                document.write("<p>No se ingresaron números válidos.</p>")
+            }
+        </script>
+        <script>
+            $(document).ready(function(){
+            $("#btnpar").click(function(){
+                  $("#pares").toggle(500);
+                });
+            $("#btnimpar").click(function(){
+                    $("#impares").toggle(500);
+                });
+            });
+        </script>
+        <button id="btnpar">Pares</button>
+        <button id="btnimpar">Impares</button>
+        <hr>
+        <h2>Ejercicio sumatorio</h2>
+        <script>
+            "use strict"
+            let numeros2 = [];
+            let max = -2000000;
+            let min = 2000000;
+            let sumas = 0;
+            let multiplicacion = 1;
+            let impares = 0;
+
+            while (true) {
+                let scn = prompt("Vuelva a meter valores (0 para terminar)")
+
+                if (scn === null || scn.trim()==="" || isNaN(scn) || Number(scn)===0) {
+                    break;
+                }
+                
+                let nume = Number(scn);
+                numeros2.push(nume);
+
+                if (nume % 2 != 0) {
+                    impares++;
+                }
+               
+            }
+            for (let i = 0; i < numeros2.length; i++) {
+                    sumas += numeros2[i];
+                    multiplicacion *= numeros2[i];
+
+
+                    if (numeros2[i] > max) {
+                    max = numeros2[i];
+                    }
+
+                    if (numeros2[i] < min) {
+                    min = numeros2[i];  
+                    }
+                }
+            if (numeros2.length > 0) {
+                document.write("<p>El array de entrada es: " + numeros2 + "</p>");
+                document.write("<p>La suma total es: " + sumas + "</p>");
+                document.write("<p>La multiplicacion de todos los numeros es: " + multiplicacion + "</p>")
+                document.write("<p>Numero mayor: " + max + "</p>");
+                document.write("<p>Numeros menor: " + min + "</p>");
+                document.write("<p>Numeros impares: " + impares + "</p>");
+            }else {
+                document.write("<p>No se ingresaron números válidos.</p>")
+            }
         </script>
     </body>
-</html
+</html>

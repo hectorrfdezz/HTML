@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Tablas de Multiplicar</title>
+    </head>
+    <body>
+        <h1>Tablas de Multiplicar</h1>
+        <p id="solicitud del numero">Introduzca un numero del 1 al 10
+        <input type="numero" id="numTabla" min="1" max="10">
+        <button onClick="generarTablas()">Generar</button>
+
+        <div id="resultado"></div>
+
+        <script>
+            function generarTablas() {
+                const numTabla = document.getElementById('numTabla').value;
+    
+                if (numTabla < 1 || numTabla > 10) {
+                    alert("Error, ingresa un número del 1 al 10");
+                    return;
+                }
+                let resultadoHTML = '';
+    
+                for (let i = 1; i <= 10; i++) {
+                    resultadoHTML += '<resultado>';
+                }
+                document.getElementById('resultado').innerHTML = resultadoHTML;
+            }
+        </script>
+    </body>
+</html>

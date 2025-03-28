@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Vehículo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: auto; }
+        .section { margin-bottom: 15px; }
+        .generated-text { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Selección de Características del Vehículo</h2>
+        
+        <div class="section">
+            <label>Tipo de motor:</label><br>
+            <select id="motor">
+                <option value="Gasolina">Gasolina</option>
+                <option value="Diésel">Diésel</option>
+                <option value="Híbrido">Híbrido</option>
+                <option value="Eléctrico">Eléctrico</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <label>Transmisión:</label><br>
+            <select id="transmision">
+                <option value="Manual">Manual</option>
+                <option value="Automática">Automática</option>
+                <option value="CVT">CVT</option>
+                <option value="Doble embrague">Doble embrague</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <label>Tracción:</label><br>
+            <select id="traccion">
+                <option value="Delantera (FWD)">Delantera (FWD)</option>
+                <option value="Trasera (RWD)">Trasera (RWD)</option>
+                <option value="Total o integral (AWD, 4x4)">Total o integral (AWD, 4x4)</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <label>Tipo de carrocería:</label><br>
+            <select id="carroceria">
+                <option value="Sedán">Sedán</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="SUV">SUV</option>
+                <option value="Coupé">Coupé</option>
+                <option value="Cabrio/Descapotable">Cabrio/Descapotable</option>
+                <option value="Familiar">Familiar</option>
+                <option value="Pick-up">Pick-up</option>
+                <option value="Monovolumen">Monovolumen</option>
+            </select>
+        </div>
+        
+        <div class="section">
+            <label>Número de puertas:</label><br>
+            <select id="puertas">
+                <option value="2 puertas">2 puertas</option>
+                <option value="3 puertas">3 puertas</option>
+                <option value="4 puertas">4 puertas</option>
+                <option value="5 puertas">5 puertas</option>
+            </select>
+        </div>
+        
+        <button onclick="generarTexto()">Generar solicitud</button>
+        
+        <p class="generated-text" id="resultado"></p>
+    </div>
+    
+    <script>
+        function generarTexto() {
+            const motor = document.getElementById("motor").value;
+            const transmision = document.getElementById("transmision").value;
+            const traccion = document.getElementById("traccion").value;
+            const carroceria = document.getElementById("carroceria").value;
+            const puertas = document.getElementById("puertas").value;
+            
+            const texto = `Quiero los 3 mejores coches que sean de motor ${motor}, con transmisión ${transmision}, que tengan tracción ${traccion}, tipo de carrocería ${carroceria} y con ${puertas}.`;
+            document.getElementById("resultado").innerText = texto;
+        }
+    </script>
+</body>
+</html>

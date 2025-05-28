@@ -5,17 +5,17 @@
 </head>
 <body>
 
-  <h3>Calcula tu nota</h3>
+  <h3>Para saber tu nota</h3>
 
   <p>Preguntas acertadas: <input type="number" id="acertadas" min="0" max="27"></p>
   <p>Preguntas falladas: <input type="number" id="falladas" min="0" max="27"></p>
 
   <p>Tiempo de entrega:
     <select id="entrega">
-      <option value="0">Menos de 1 hora</option>
-      <option value="0.1">Entre 1 y 12 horas</option>
-      <option value="0.2">Entre 12 y 24 horas</option>
-      <option value="0.3">No entregado / Más de 24 horas</option>
+      <option value="0">Menos de 1 hora (sin penalizacion)</option>
+      <option value="0.1">Entre 1 y 12 horas (-0.1)</option>
+      <option value="0.2">Entre 12 y 24 horas (-0.2)</option>
+      <option value="0.3">No entregado / Mas de 24 horas (-0.3)</option>
     </select>
   </p>
 
@@ -27,7 +27,7 @@
     function calcularNota() {
       var acertadas = parseInt(document.getElementById('acertadas').value);
       var falladas = parseInt(document.getElementById('falladas').value);
-      var penalizacion = parseFloat(document.getElementById('entrega').value);
+      var entrega = parseFloat(document.getElementById('entrega').value);
       var total = 27;
 
       if (isNaN(acertadas) || isNaN(falladas)) {
@@ -36,16 +36,23 @@
       }
 
       if (acertadas > 27 || falladas > 27) {
-        document.getElementById('resultado').innerText = "El examen cuenta con 27 preguntas, vuelvalo a intentar";
+        document.getElementById('resultado').innerText = "El examen SOLO tiene 27 preguntas";
         return;
       }
 
-      if (acertadas + falladas > 27) {
-        document.getElementById('resultado').innerText = "La suma de acertadas y falladas no puede ser mayor que 27.";
+      if (acertadas + falladas > total) {
+        document.getElementById('resultado').innerText = "La suma de preguntas no puede ser mayor que 27";
         return;
       }
 
-      var nota = (acertadas / total) * 10 - penalizacion;
+      var nota = (acertadas / total) * 10;
+
+      nota -= entrega;
+
+      if (entrega > 0) {
+        nota -= falladas * 0.3;
+      }
+
       if (nota < 0) {
         nota = 0;
       }

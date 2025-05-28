@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formulario IA - Selección de Vehículo</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+h2 {
+color: #2c3e50;
+}
+fieldset {
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 8px;
+}
+legend {
+font-weight: bold;
+}
+label {
+margin-right: 10px;
+}
+.result {
+margin-top: 30px;
+padding: 15px;
+background-color: #ecf0f1;
+border-left: 4px solid #3498db;
+}
+</style>
+</head>
+<body>
+
+<h2>Selección de Características del Vehículo</h2>
+
+<form id="vehiculoForm">
+<fieldset>
+<legend>Tipo de motor</legend>
+<label><input type="radio" name="motor" value="gasolina"> Gasolina</label>
+<label><input type="radio" name="motor" value="diésel"> Diésel</label>
+<label><input type="radio" name="motor" value="híbrido"> Híbrido</label>
+<label><input type="radio" name="motor" value="eléctrico"> Eléctrico</label>
+</fieldset>
+
+<fieldset>
+<legend>Transmisión</legend>
+<label><input type="radio" name="transmision" value="manual"> Manual</label>
+<label><input type="radio" name="transmision" value="automática"> Automática</label>
+<label><input type="radio" name="transmision" value="CVT"> CVT</label>
+<label><input type="radio" name="transmision" value="doble embrague"> Doble embrague</label>
+</fieldset>
+
+<fieldset>
+<legend>Tracción</legend>
+<label><input type="radio" name="traccion" value="delantera (FWD)"> Delantera (FWD)</label>
+<label><input type="radio" name="traccion" value="trasera (RWD)"> Trasera (RWD)</label>
+<label><input type="radio" name="traccion" value="total (AWD, 4x4)"> Total o integral (AWD, 4x4)</label>
+</fieldset>
+
+<fieldset>
+<legend>Tipo de carrocería</legend>
+<label><input type="radio" name="carroceria" value="sedán"> Sedán</label>
+<label><input type="radio" name="carroceria" value="hatchback"> Hatchback</label>
+<label><input type="radio" name="carroceria" value="SUV"> SUV</label>
+<label><input type="radio" name="carroceria" value="coupé"> Coupé</label>
+<label><input type="radio" name="carroceria" value="cabrio"> Cabrio/Descapotable</label>
+<label><input type="radio" name="carroceria" value="familiar"> Familiar</label>
+<label><input type="radio" name="carroceria" value="pick-up"> Pick-up</label>
+<label><input type="radio" name="carroceria" value="monovolumen"> Monovolumen</label>
+</fieldset>
+
+<fieldset>
+<legend>Número de puertas</legend>
+<label><input type="radio" name="puertas" value="2"> 2 puertas</label>
+<label><input type="radio" name="puertas" value="3"> 3 puertas</label>
+<label><input type="radio" name="puertas" value="4"> 4 puertas</label>
+<label><input type="radio" name="puertas" value="5"> 5 puertas</label>
+</fieldset>
+
+<button type="button" onclick="generarFrase()">Resumen</button>
+</form>
+
+<div id="resultado" class="result" style="display:none;"></div>
+
+<script>
+function generarFrase() {
+const motor = document.querySelector('input[name="motor"]:checked')?.value;
+const transmision = document.querySelector('input[name="transmision"]:checked')?.value;
+const traccion = document.querySelector('input[name="traccion"]:checked')?.value;
+const carroceria = document.querySelector('input[name="carroceria"]:checked')?.value;
+const puertas = document.querySelector('input[name="puertas"]:checked')?.value;
+
+if (motor && transmision && traccion && carroceria && puertas) {
+const frase = `Quiero los 3 mejores coches que sean de motor ${motor}, con transmisión ${transmision}, que tengan tracción ${traccion}, tipo de carrocería ${carroceria}, y con ${puertas} puertas.`;
+document.getElementById('resultado').textContent = frase;
+document.getElementById('resultado').style.display = 'block';
+} else {
+alert('Por favor selecciona una opción en cada categoría.');
+}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Matrícula Flexible</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #fff8f0;
+      color: #333;
+    }
+
+    h2 {
+      color: #e67e22;
+    }
+
+    fieldset {
+      border: 2px solid #e67e22;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #e67e22;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #cf711c;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff3e0;
+      border-left: 4px solid #e67e22;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Matrícula Flexible</h2>
+
+  <form id="formulario">
+    <fieldset>
+      <legend>Asignaturas:</legend>
+      <label><input type="checkbox" id="mat1"> Matemáticas I</label>
+      <label><input type="checkbox" id="his"> Historia</label>
+      <label><input type="checkbox" id="mat2"> Matemáticas II</label>
+      <label><input type="checkbox" id="fis"> Física</label>
+    </fieldset>
+
+    <label>Horas semanales:
+      <input type="number" id="horas" min="1" required>
+    </label>
+
+    <label><input type="checkbox" id="antiguo"> Antiguo alumno</label>
+    <label><input type="checkbox" id="beca"> Tiene beca</label>
+
+    <br><br>
+    <button type="submit">Calcular Precio</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const mat1 = document.getElementById('mat1').checked;
+      const mat2 = document.getElementById('mat2').checked;
+      const fis = document.getElementById('fis').checked;
+      const his = document.getElementById('his').checked;
+      const horas = parseFloat(document.getElementById('horas').value);
+      const esAntiguo = document.getElementById('antiguo').checked;
+      const tieneBeca = document.getElementById('beca').checked;
+
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = ''; // limpiar resultado anterior
+
+      // Validación: no se puede elegir Mat II sin Mat I
+      if (mat2 && !mat1) {
+        resultado.innerHTML = '<div class="error">Error: No puedes elegir Matemáticas II sin haber elegido Matemáticas I.</div>';
+        return;
+      }
+
+      // Precio base
+      let precioBase = horas * 20;
+
+      // Descuento por antiguo alumno
+      let precioFinal = esAntiguo ? precioBase * 0.65 : precioBase;
+
+      let mensaje = `<p>Total mensual sin beca: <strong>${precioFinal.toFixed(2)}€</strong></p>`;
+
+      // Descuento por beca
+      if (tieneBeca) {
+        const precioBeca = precioFinal * 0.20;
+        mensaje += `<p>Total mensual con beca: <strong>${precioBeca.toFixed(2)}€</strong></p>`;
+      }
+
+      resultado.innerHTML = mensaje;
+    });
+  </script>
+</body>
+</html>

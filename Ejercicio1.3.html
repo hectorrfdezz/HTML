@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1.3</title>
+</head>
+<body>
+
+    <h1>Ejercicio 1.3</h1>
+
+    <input type="text" id="texto" placeholder="Escribe algo aquí">
+    <button onclick="mostrarTexto()">Mostrar en una capa</button>
+
+    <div id="capa" style="margin-top:20px; padding:10px; border:1px solid #000; width:300px;">
+        Aquí se mostrará tu texto
+    </div>
+
+    <script>
+        function mostrarTexto() {
+            // Obtener el valor del input
+            let valor = document.getElementById("texto").value;
+
+            // Mostrarlo en el div
+            document.getElementById("capa").textContent = valor;
+        }
+    </script>
+
+</body>
+</html>

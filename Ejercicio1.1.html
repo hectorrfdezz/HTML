@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1.1</title>
+</head>
+<body>
+
+    <h1>Ejercicio 1.1</h1>
+    <p id="resultado">Aquí aparecerá tu dato</p>
+    <button onclick="pedirDato()">Introducir dato</button>
+
+    <script>
+        function pedirDato() {
+            let dato = prompt("Introduce un dato:");
+            if(dato) {
+                document.getElementById("resultado").textContent = "Has introducido: " + dato;
+            } else {
+                document.getElementById("resultado").textContent = "No se ha introducido ningún dato.";
+            }
+        }
+    </script>
+
+</body>
+</html>

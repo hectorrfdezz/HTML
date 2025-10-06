@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1.2</title>
+</head>
+<body>
+
+    <h1>Ejercicio 1.2</h1>
+
+    <label for="colores">Selecciona un color:</label>
+    <select id="colores" onchange="mostrarColor()">
+        <option value="">--Elige un color--</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Azul">Azul</option>
+        <option value="Verde">Verde</option>
+        <option value="Amarillo">Amarillo</option>
+        <option value="Negro">Negro</option>
+    </select>
+
+    <script>
+        function mostrarColor() {
+            // Obtener el valor seleccionado
+            let color = document.getElementById("colores").value;
+
+            // Mostrarlo en la consola
+            console.log("Has seleccionado:", color);
+        }
+    </script>
+
+</body>
+</html>

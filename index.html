@@ -11,7 +11,9 @@
             padding: 0;
             background: linear-gradient(to right, #ff7e5f, #feb47b);
             color: #333;
-            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
         h1 {
@@ -19,14 +21,30 @@
             color: #fff;
             font-size: 3rem;
             font-family: 'Helvetica', sans-serif;
-            margin-top: 50px;
+            margin: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .window {
+            flex: 1;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 20px;
         }
 
         h2 {
             text-align: center;
             color: #34495e;
             font-size: 2rem;
-            margin-top: 20px;
+            margin-top: 0;
             font-family: 'Helvetica', sans-serif;
         }
 
@@ -36,24 +54,18 @@
             letter-spacing: 2px;
             font-weight: bold;
             text-align: center;
-            margin-top: 30px;
-            font-size: 2rem;
+            margin-top: 20px;
+            font-size: 1.8rem;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
-            margin: 20px auto 40px auto;
-            max-width: 600px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 2px solid #ddd;
+            margin: 20px 0;
         }
 
         li {
-            padding: 15px;
+            padding: 10px;
             border-bottom: 1px solid #ddd;
             background-color: #ecf0f1;
             text-align: center;
@@ -72,7 +84,7 @@
         a {
             color: #2c3e50;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: color 0.3s ease;
         }
@@ -83,11 +95,10 @@
 
         footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 15px 0;
             background-color: #34495e;
             color: #ecf0f1;
-            font-size: 1rem;
-            margin-top: 50px;
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -99,11 +110,19 @@
             text-decoration: underline;
         }
 
-        /* Separador de secciones */
-        .section {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 2px solid #fff;
+        /* Scrollbar personalizado opcional */
+        .window::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .window::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+
+        .window::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -111,56 +130,60 @@
 
     <h1>Héctor Ramos Fernández</h1>
 
-    <!-- SECCIÓN 1ºDAW -->
-    <div class="section">
-        <h2>1ºDAW - Ejercicios</h2>
+    <div class="container">
+        <!-- Ventana 1ºDAW -->
+        <div class="window">
+            <h2>1ºDAW - Ejercicios</h2>
 
-        <h3>Curriculum Vitae</h3>
-        <ul>
-            <li><a href="https://hectorrfdezz.github.io/HTML/Curriculum/curriculum_vitae.html">Curriculum</a></li>
-        </ul>
+            <h3>Curriculum Vitae</h3>
+            <ul>
+                <li><a href="https://hectorrfdezz.github.io/HTML/Curriculum/curriculum_vitae.html">Curriculum</a></li>
+            </ul>
 
-        <h3>TEMA 1: Introducción al lenguaje de marcas</h3>
-        <ul>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio1.html">Ejercicio 1</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio2.html">Ejercicio 2</a></li>
-        </ul>
+            <h3>TEMA 1: Introducción al lenguaje de marcas</h3>
+            <ul>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio1.html">Ejercicio 1</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio2.html">Ejercicio 2</a></li>
+            </ul>
 
-        <h3>TEMA 2: HTML</h3>
-        <ul>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ1 Listas/Lista-numerada.html">Ejercicio 1: Listas</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ2 Tablas/horario.html">Ejercicio 2: Horario</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ3 Imagen/ZImagen1.html">Ejercicio 3: Imagen</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ4 Frames/ZFrame.html">Ejercicio 4: Frame</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ5 Formulario/ZFormulario.html">Ejercicio 5: Formulario</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ6 Botones/ZBotones.html">Ejercicio 6: Caja texto+Botones</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ7 PaginaWeb/PaginaBarca.html">Ejercicio 7: Página Web</a></li>
-        </ul>
+            <h3>TEMA 2: HTML</h3>
+            <ul>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ1 Listas/Lista-numerada.html">Ejercicio 1: Listas</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ2 Tablas/horario.html">Ejercicio 2: Horario</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ3 Imagen/ZImagen1.html">Ejercicio 3: Imagen</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ4 Frames/ZFrame.html">Ejercicio 4: Frame</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ5 Formulario/ZFormulario.html">Ejercicio 5: Formulario</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ6 Botones/ZBotones.html">Ejercicio 6: Caja texto+Botones</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ7 PaginaWeb/PaginaBarca.html">Ejercicio 7: Página Web</a></li>
+            </ul>
 
-        <h3>TEMA 4</h3>
-        <ul>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html">Ejercicio 0: JavaScript</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Ejs javascript.html">Ejercicio 1: JavaScript</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html">Ejercicio 2: JavaScript</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/calculadora.html">Ejercicio 3: Calculadora</a></li>
-        </ul>
+            <h3>TEMA 4</h3>
+            <ul>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html">Ejercicio 0: JavaScript</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Ejs javascript.html">Ejercicio 1: JavaScript</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html">Ejercicio 2: JavaScript</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/calculadora.html">Ejercicio 3: Calculadora</a></li>
+            </ul>
 
-        <h3>TEMA 4 pt2</h3>
-        <ul>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioIA.html">Formulario IA</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioMatricula.html">Formulario Matricula</a></li>
-            <li><a href="https://hectorrfdezz.github.io/HTML/PrácticaExamenLGDM/prueba.html">Calculadora Notas Examen</a></li>
-        </ul>
-    </div>
+            <h3>TEMA 4 pt2</h3>
+            <ul>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioIA.html">Formulario IA</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioMatricula.html">Formulario Matricula</a></li>
+                <li><a href="https://hectorrfdezz.github.io/HTML/PrácticaExamenLGDM/prueba.html">Calculadora Notas Examen</a></li>
+            </ul>
+        </div>
 
-    <!-- SECCIÓN 2ºDAW -->
-    <div class="section">
-        <h2>2ºDAW - Proyectos</h2>
-        <p style="text-align:center; font-size:1.2rem;">Aquí podrás subir tus proyectos del segundo año. Ejemplo de enlace a un proyecto:</p>
-        <ul>
-            <li><a href="#">Proyecto 1: Página web de ejemplo</a></li>
-            <li><a href="#">Proyecto 2: Aplicación JavaScript</a></li>
-        </ul>
+        <!-- Ventana 2ºDAW -->
+        <div class="window">
+            <h2>2ºDAW - Proyectos</h2>
+            <p style="text-align:center; font-size:1.2rem;">Aquí podrás subir tus proyectos del segundo año:</p>
+            <ul>
+                <li><a href="#">Proyecto 1: Página web de ejemplo</a></li>
+                <li><a href="#">Proyecto 2: Aplicación JavaScript</a></li>
+                <li><a href="#">Proyecto 3: Proyecto de PHP</a></li>
+                <li><a href="#">Proyecto 4: Proyecto final</a></li>
+            </ul>
+        </div>
     </div>
 
     <footer>
@@ -169,9 +192,6 @@
         <br>
         Más información en <a href="https://github.com/hectorrfdezz">hectorrf.com</a>.
     </footer>
-
-</body>
-</html>
 
 </body>
 </html>

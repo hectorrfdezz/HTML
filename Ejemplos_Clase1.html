@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Días de la Semana - Básico</title>
+</head>
+<body>
+    <h1>Días de la Semana - HRF</h1>
+    <div id="resultado"></div>
+
+    <script>
+        let dias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+        let texto = "Dias y longitudes:\n";
+        dias.forEach(dia => {
+            texto += dia + " - " + dia.length + " letras\n";
+        });
+
+        let sumaTotal = dias.reduce((acc, dia) => acc + dia.length, 0);
+        texto += "\nSuma total de letras: " + sumaTotal;
+
+        let diaMasLargo = dias.reduce((a, b) => a.length >= b.length ? a : b);
+        texto += "\nDía más largo: " + diaMasLargo + " (" + diaMasLargo.length + " letras)";
+
+        let diaMasCorto = dias.reduce((a, b) => a.length <= b.length ? a : b);
+        texto += "\nDía más corto: " + diaMasCorto + " (" + diaMasCorto.length + " letras)";
+
+        document.getElementById('resultado').innerText = texto;
+    </script>
+</body>
+</html>

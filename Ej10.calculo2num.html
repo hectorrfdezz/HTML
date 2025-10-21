@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 10 - Multiplicación y División</title>
+</head>
+<body>
+  <h1>Ejercicio 10 - Multiplicación y División</h1>
+  <button onclick="calcular()">Calcular</button>
+
+  <script>
+    function calcular() {
+      // Pedimos los dos números al usuario
+      const num1 = parseFloat(prompt("Introduce el primer número:"));
+      const num2 = parseFloat(prompt("Introduce el segundo número:"));
+
+      // Comprobamos que sean números válidos
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Por favor, introduce valores numéricos válidos.");
+        return;
+      }
+
+      // Calculamos multiplicación y división
+      const multiplicacion = num1 * num2;
+      const division = num1 / num2;
+
+      // Mostramos los resultados
+      alert(
+        `Resultados:\n` +
+        `${num1} × ${num2} = ${multiplicacion}\n` +
+        `${num1} ÷ ${num2} = ${division}`
+      );
+    }
+  </script>
+</body>
+</html>

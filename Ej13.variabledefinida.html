@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 13 - Variable con nombre definido por el usuario</title>
+</head>
+<body>
+  <h1>Ejercicio 13 - Crear variable con nombre elegido por el usuario</h1>
+  <button onclick="crearVariable()">Crear variable</button>
+
+  <script>
+    function crearVariable() {
+      const nombreVariable = prompt("Introduce el nombre de la variable:");
+
+      const valorVariable = prompt("Introduce el valor de la variable:");
+
+      window[nombreVariable] = valorVariable;
+
+      //mostrar el resultado
+      alert(`Se ha creado la variable '${nombreVariable}' con el valor: ${valorVariable}`);
+    }
+  </script>
+</body>
+</html>

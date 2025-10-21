@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 15 - Diferencia con 13</title>
+</head>
+<body>
+  <h1>Ejercicio 15 - Diferencia con 13</h1>
+  <button onclick="calcularDiferencia()">Calcular diferencia</button>
+
+  <script>
+    function calcularDiferencia() {
+      const numero = parseFloat(prompt("Introduce un número:"));
+
+      if (isNaN(numero)) {
+        alert("Por favor, introduce un número válido.");
+        return;
+      }
+
+      const diferencia = Math.abs(numero - 13); 
+
+      const resultado = numero > 13 ? diferencia * 2 : diferencia;
+
+      alert(`La diferencia calculada es: ${resultado}`);
+    }
+  </script>
+</body>
+</html>

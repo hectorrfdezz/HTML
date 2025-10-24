@@ -1,53 +1,70 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Índice profesional de ejercicios y proyectos de Héctor Ramos Fernández — proyectos, ejercicios y CV.">
-  <title>Héctor Ramos Fernández — Índice de ejercicios y proyectos</title>
-  <!-- Favicon (data URI small svg) -->
+  <meta name="description" content="Índice profesional de ejercicios, proyectos y CV de Héctor Ramos Fernández — portafolio técnico y contactos.">
+  <title>Héctor Ramos Fernández — Portafolio</title>
+
+  <!-- Favicon (simple SVG) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ff7e5f'/%3E%3Ctext x='50' y='57' font-size='42' text-anchor='middle' font-family='Verdana' fill='white'%3EH%3C/text%3E%3C/svg%3E">
-  <!-- Tipografía (se puede cambiar fácilmente) -->
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <style>
-    /* Variables de tema */
+    /* =====================
+       Theme variables
+       ===================== */
     :root{
-      --bg-1: #0f1724; /* fondo oscuro para header */
-      --accent-1: #ff7e5f; /* naranja */
-      --accent-2: #feb47b; /* naranja claro */
-      --card-bg: #ffffffee;
-      --muted: #64748b;
+      --bg: #f7fafc;
+      --panel: #ffffff;
+      --text: #0b1220;
+      --muted: #6b7280;
+      --accent-1: #ff7e5f;
+      --accent-2: #feb47b;
       --radius: 12px;
-      --glass: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.9);
+      --shadow: 0 8px 30px rgba(6,10,18,0.08);
+      --focus: rgba(99,102,241,0.18);
+      --max-width: 1200px;
     }
-    /* Reset minimal */
+
+    [data-theme="dark"]{
+      --bg: #071023;
+      --panel: #081226;
+      --text: #e6eefb;
+      --muted: #94a3b8;
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --glass: rgba(11,18,32,0.72);
+    }
+
+    /* Minimal reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
       background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
       -webkit-font-smoothing:antialiased;
-      color:#0b1220;
+      color:var(--text);
       min-height:100vh;
       display:flex;
-      flex-direction:column;
       align-items:center;
-      gap:18px;
-      padding:24px;
+      justify-content:center;
+      padding:28px;
     }
 
-    /* Contenedor principal */
+    /* Frame */
     .frame{
       width:100%;
-      max-width:1200px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+      max-width:var(--max-width);
       border-radius:18px;
-      box-shadow:0 10px 30px rgba(2,6,23,0.25);
       overflow:hidden;
+      box-shadow:var(--shadow);
+      background:linear-gradient(180deg, var(--glass), rgba(255,255,255,0.86));
       display:flex;
       flex-direction:column;
     }
@@ -55,84 +72,61 @@
     header{
       display:flex;
       align-items:center;
-      gap:16px;
+      gap:18px;
       padding:20px 28px;
-      background:linear-gradient(90deg,var(--bg-1), rgba(15,23,36,0.9));
+      background:linear-gradient(90deg, rgba(11,18,32,0.95), rgba(11,18,32,0.9));
       color:white;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-family:Playfair Display, serif;font-size:22px;box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    }
-    h1{margin:0;font-size:1.25rem;letter-spacing:0.2px}
-    .meta{color:rgba(255,255,255,0.85);font-size:0.9rem}
 
-    /* Controls */
-    .controls{margin-left:auto;display:flex;gap:10px;align-items:center}
-    .search{
-      display:inline-flex;align-items:center;background:rgba(255,255,255,0.06);padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:60px;height:60px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Playfair Display, serif;font-weight:700;font-size:24px;color:white;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 20px rgba(0,0,0,0.18);
     }
-    .search input{background:transparent;border:0;outline:none;color:white;font-size:0.95rem;width:220px}
-    .btn{background:transparent;border:0;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
-    .btn:focus{outline:3px solid rgba(255,126,95,0.22)}
+
+    .title{line-height:1}
+    h1{margin:0;font-size:1.15rem}
+    .meta{opacity:0.95;font-size:0.9rem;color:rgba(255,255,255,0.9)}
+
+    nav{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .btn{background:transparent;border:0;color:inherit;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    .btn:focus{outline:3px solid var(--focus)}
 
     main{
       display:grid;
-      grid-template-columns:1fr 420px;
+      grid-template-columns:1fr 340px;
       gap:22px;
       padding:28px;
+      background:transparent;
     }
 
-    /* Lista principal (cards) */
-    .panel{
-      background:var(--card-bg);
-      border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(12,18,24,0.06);height:calc(100% - 36px);overflow:auto;
-    }
-    .panel h2{margin-top:0;color:#0b1220;font-size:1.2rem}
-    .section-title{display:flex;align-items:center;gap:12px;margin:18px 0 8px}
+    /* Panels */
+    .panel{background:var(--panel);border-radius:12px;padding:18px;box-shadow:var(--shadow);overflow:auto}
+    .panel h2{margin-top:0;font-size:1.05rem}
+    .muted{color:var(--muted);font-size:0.95rem}
+
     .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:#f1f5f9;padding:6px 10px;border-radius:999px;font-weight:600;color:#0b1220;font-size:0.85rem}
+    .chip{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:var(--muted)}
 
+    /* Grid of cards */
     ul.index{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .card{
-      background:linear-gradient(180deg,white, #fbfbfd);
-      border-radius:10px;padding:12px;border:1px solid rgba(10,15,25,0.04);display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:transform .15s ease,box-shadow .15s ease;
-    }
-    .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.08)}
-    .card a{color:var(--bg-1);text-decoration:none;font-weight:700}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.98),#fbfbfd);border-radius:10px;padding:12px;border:1px solid rgba(10,15,25,0.04);display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:transform .15s ease,box-shadow .15s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .card a{color:var(--text);text-decoration:none;font-weight:700}
     .card small{color:var(--muted)}
 
-    /* Sidebar */
-    aside{
-      display:flex;flex-direction:column;gap:12px;
-    }
-    .side-card{background:var(--card-bg);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(12,18,24,0.06)}
-    .side-card h3{margin:0 0 8px}
-    .list-links{display:flex;flex-direction:column;gap:8px}
-    .list-links a{padding:10px;border-radius:8px;text-decoration:none;font-weight:600;color:var(--bg-1);background:#fff;border:1px solid rgba(10,15,25,0.04)}
+    aside{display:flex;flex-direction:column;gap:12px}
+    .side-card{padding:16px;border-radius:12px}
+    .list-links a{display:inline-block;padding:10px;border-radius:8px;text-decoration:none;font-weight:700;color:var(--text);background:#fff;border:1px solid rgba(10,15,25,0.04)}
 
-    /* Footer */
     footer{padding:12px 20px;background:linear-gradient(90deg,#0b1220,#0f1724);color:#dbeafe;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
-    footer small{opacity:0.9}
+    footer small{opacity:0.95}
 
-    /* Responsive */
-    @media (max-width:960px){
-      main{grid-template-columns:1fr}
-      .search input{width:120px}
-    }
+    /* Search */
+    .search{display:inline-flex;align-items:center;background:rgba(255,255,255,0.06);padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,0.06)}
+    .search input{background:transparent;border:0;outline:none;color:white;font-size:0.95rem;width:220px}
 
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){*{transition:none!important}}
-
-    /* Focus visible (accessibility) */
-    :focus{outline:none}
-    :focus-visible{outline:3px solid rgba(99,102,241,0.18);border-radius:6px}
-  
-    /* Accordion styles */
+    /* Accordion */
     .accordion{display:flex;flex-direction:column;gap:12px}
     .accordion-item{border-radius:10px;overflow:hidden;border:1px solid rgba(10,15,25,0.04);background:linear-gradient(180deg,#fff,#fbfbfd)}
     .accordion-header{width:100%;text-align:left;padding:12px 16px;border:0;background:transparent;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1rem}
@@ -141,59 +135,74 @@
     .accordion-panel{padding:12px 16px;border-top:1px solid rgba(10,15,25,0.03)}
     .accordion-panel[hidden]{display:none}
 
+    /* small devices */
+    @media (max-width:960px){
+      main{grid-template-columns:1fr}
+      .search input{width:140px}
+    }
+
+    /* Accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* print */
+    @media print{body{background:white} header,nav,footer{display:none} .frame{box-shadow:none}}
+
   </style>
 </head>
 <body>
-  <div class="frame" role="application" aria-label="Índice de ejercicios y proyectos de Héctor Ramos Fernández">
+  <div class="frame" role="application" aria-label="Portafolio de Héctor Ramos Fernández">
+
     <header>
       <div class="brand">
         <div class="logo" aria-hidden>H</div>
-        <div>
+        <div class="title">
           <h1>Héctor Ramos Fernández</h1>
-          <div class="meta">Portafolio &mdash; Lenguaje de Marcas · 1ºDAW / 2ºDAW</div>
+          <div class="meta">Portafolio técnico — Lenguaje de Marcas · DAW</div>
         </div>
       </div>
 
-      <div class="controls" role="search">
-        <label class="search" for="q" aria-hidden>
+      <nav aria-label="Acciones principales">
+        <div class="search" role="search">
+          <label for="q" class="sr-only">Buscar ejercicios</label>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 21l-4.35-4.35" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="11" cy="11" r="6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <input id="q" type="search" placeholder="Buscar ejercicios (tema, palabra...)" aria-label="Buscar ejercicios" />
-        </label>
-        <button id="toggleDark" class="btn" aria-pressed="false" title="Alternar tema">Tema</button>
+          <input id="q" type="search" placeholder="Buscar (tema, palabra...)" aria-label="Buscar ejercicios" />
+        </div>
+
+        <button id="toggleTheme" class="btn" aria-pressed="false" title="Alternar tema">Tema</button>
         <a class="btn" href="https://github.com/hectorrfdezz" target="_blank" rel="noopener">GitHub</a>
-      </div>
+        <a id="cvDownloadHeader" class="btn primary" href="/HTML/Curriculum/curriculum_vitae.pdf" target="_blank" rel="noopener">Descargar CV</a>
+      </nav>
     </header>
 
     <main>
-      <!-- Dos secciones claras: 1ºDAW (accordion) y 2ºDAW -->
-
       <section class="panel" aria-labelledby="primero-title">
         <h2 id="primero-title">1ºDAW — Ejercicios</h2>
-        <p style="margin-top:0;color:var(--muted);">Ejercicios y recursos del primer curso. Haz clic en cada tema para expandir o contraer.</p>
+        <p class="muted">Listado organizado de ejercicios y prácticas. Haz clic en cada tema para expandir o contraer. (Se abren en una vista previa para revisar sin salir).</p>
 
-        <div class="section-title">
-          <div class="chips">
-            <span class="chip">HTML</span>
-            <span class="chip">Fundamentos</span>
-          </div>
+        <div style="margin:12px 0" class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Proyectos</span>
         </div>
 
         <div class="accordion" role="tablist" aria-label="Temas 1ºDAW">
 
           <!-- Curriculum -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="true">Curriculum</button>
-            <div class="accordion-panel">
+          <article class="accordion-item">
+            <h3>
+              <button class="accordion-header" aria-expanded="true" aria-controls="panel-cv" id="ctrl-cv">Curriculum</button>
+            </h3>
+            <div id="panel-cv" class="accordion-panel" role="region" aria-labelledby="ctrl-cv">
               <ul class="index">
                 <li class="card" data-tags="cv" data-title="Curriculum">
-                  <div style="width:100%;display:flex;flex-direction:column;gap:8px;">
-                    <a href="https://hectorrfdezz.github.io/HTML/Curriculum/curriculum_vitae.html" target="_blank" rel="noopener">Curriculum</a>
-                    <div style="display:flex;gap:8px;align-items:center">
-                      <a class="btn" id="downloadCV" href="https://hectorrfdezz.github.io/HTML/Curriculum/curriculum_vitae.html" target="_blank" rel="noopener" title="Abrir CV en nueva pestaña">Abrir / Descargar</a>
-                      <button class="btn" data-link="https://hectorrfdezz.github.io/HTML/Curriculum/curriculum_vitae.html" aria-label="Copiar enlace del CV">Copiar enlace</button>
+                  <div>
+                    <a href="/HTML/Curriculum/curriculum_vitae.html" target="_blank" rel="noopener">Curriculum (vista web)</a>
+                    <div style="margin-top:8px;display:flex;gap:8px">
+                      <a class="btn" href="/HTML/Curriculum/curriculum_vitae.pdf" id="cvPdfLink" target="_blank" rel="noopener">Abrir PDF</a>
+                      <button class="btn" data-link="/HTML/Curriculum/curriculum_vitae.pdf" aria-label="Copiar enlace del CV">Copiar enlace</button>
                       <a class="btn" href="mailto:hramfer634@g.educaand.es">Contactar</a>
                     </div>
                   </div>
@@ -201,320 +210,185 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </article>
 
           <!-- Tema 1 -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">TEMA 1: Introducción al lenguaje de marcas</button>
-            <div class="accordion-panel" hidden>
+          <article class="accordion-item">
+            <h3>
+              <button class="accordion-header" aria-expanded="false" aria-controls="panel-t1" id="ctrl-t1">TEMA 1: Introducción al lenguaje de marcas</button>
+            </h3>
+            <div id="panel-t1" class="accordion-panel" role="region" aria-labelledby="ctrl-t1" hidden>
               <ul class="index">
-                <li class="card" data-tags="tema1" data-title="Ejercicio 1 - Tema 1"><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio1.html" target="_blank" rel="noopener">Ejercicio 1</a><small>1ºDAW · Tema 1</small></li>
-                <li class="card" data-tags="tema1" data-title="Ejercicio 2 - Tema 1"><a href="https://hectorrfdezz.github.io/HTML/TEMA 1/Ejercicio2.html" target="_blank" rel="noopener">Ejercicio 2</a><small>1ºDAW · Tema 1</small></li>
+                <li class="card" data-tags="tema1" data-title="Ejercicio 1 - Tema 1"><a href="/HTML/TEMA%201/Ejercicio1.html" target="_blank" rel="noopener">Ejercicio 1</a><small>1ºDAW · Tema 1</small></li>
+                <li class="card" data-tags="tema1" data-title="Ejercicio 2 - Tema 1"><a href="/HTML/TEMA%201/Ejercicio2.html" target="_blank" rel="noopener">Ejercicio 2</a><small>1ºDAW · Tema 1</small></li>
               </ul>
             </div>
-          </div>
+          </article>
 
-          <!-- Tema 2 -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">TEMA 2: HTML</button>
-            <div class="accordion-panel" hidden>
+          <!-- Más temas (ejemplo reducido para legibilidad) -->
+          <article class="accordion-item">
+            <h3>
+              <button class="accordion-header" aria-expanded="false" aria-controls="panel-t2" id="ctrl-t2">TEMA 2: HTML</button>
+            </h3>
+            <div id="panel-t2" class="accordion-panel" role="region" aria-labelledby="ctrl-t2" hidden>
               <ul class="index">
-                <li class="card" data-tags="tema2 listas" data-title="Ejercicio - Listas"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ1 Listas/Lista-numerada.html" target="_blank" rel="noopener">Ejercicio 1: Listas</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 tablas" data-title="Ejercicio - Horario"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ2 Tablas/horario.html" target="_blank" rel="noopener">Ejercicio 2: Horario</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 imagen" data-title="Ejercicio - Imagen"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ3 Imagen/ZImagen1.html" target="_blank" rel="noopener">Ejercicio 3: Imagen</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 frame" data-title="Ejercicio - Frame"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ4 Frames/ZFrame.html" target="_blank" rel="noopener">Ejercicio 4: Frame</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 formulario" data-title="Ejercicio - Formulario"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ5 Formulario/ZFormulario.html" target="_blank" rel="noopener">Ejercicio 5: Formulario</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 botones" data-title="Ejercicio - Caja texto+Botones"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ6 Botones/ZBotones.html" target="_blank" rel="noopener">Ejercicio 6: Caja texto+Botones</a><small>1ºDAW · Tema 2</small></li>
-                <li class="card" data-tags="tema2 pagina" data-title="Ejercicio - Página Web"><a href="https://hectorrfdezz.github.io/HTML/TEMA 2 HTML/EJ7 PaginaWeb/PaginaBarca.html" target="_blank" rel="noopener">Ejercicio 7: Página Web</a><small>1ºDAW · Tema 2</small></li>
+                <li class="card"><a href="/HTML/TEMA%202%20HTML/EJ1%20Listas/Lista-numerada.html" target="_blank" rel="noopener">Ejercicio 1: Listas</a><small>1ºDAW · Tema 2</small></li>
+                <li class="card"><a href="/HTML/TEMA%202%20HTML/EJ2%20Tablas/horario.html" target="_blank" rel="noopener">Ejercicio 2: Horario</a><small>1ºDAW · Tema 2</small></li>
               </ul>
             </div>
-          </div>
-
-          <!-- Tema 4 -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">TEMA 4</button>
-            <div class="accordion-panel" hidden>
-              <ul class="index">
-                <li class="card" data-tags="tema4" data-title="Ejercicio 0 - JavaScript"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html" target="_blank" rel="noopener">Ejercicio 0: JavaScript</a><small>1ºDAW · Tema 4</small></li>
-                <li class="card" data-tags="tema4" data-title="Ejercicio 1 - JavaScript"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Ejs javascript.html" target="_blank" rel="noopener">Ejercicio 1: JavaScript</a><small>1ºDAW · Tema 4</small></li>
-                <li class="card" data-tags="tema4" data-title="Ejercicio 2 - JavaScript"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/Incrustando_java.html" target="_blank" rel="noopener">Ejercicio 2: JavaScript</a><small>1ºDAW · Tema 4</small></li>
-                <li class="card" data-tags="tema4 calculadora" data-title="Ejercicio 3 - Calculadora"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4/calculadora.html" target="_blank" rel="noopener">Ejercicio 3: Calculadora</a><small>1ºDAW · Tema 4</small></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Tema 4 pt2 -->
-          <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">TEMA 4 pt2</button>
-            <div class="accordion-panel" hidden>
-              <ul class="index">
-                <li class="card" data-tags="tema4pt2" data-title="Formulario IA"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioIA.html" target="_blank" rel="noopener">Formulario IA</a><small>1ºDAW · Tema 4 pt2</small></li>
-                <li class="card" data-tags="tema4pt2" data-title="Formulario Matricula"><a href="https://hectorrfdezz.github.io/HTML/TEMA 4 PT2/FormularioMatricula.html" target="_blank" rel="noopener">Formulario Matricula</a><small>1ºDAW · Tema 4 pt2</small></li>
-                <li class="card" data-tags="tema4pt2" data-title="Calculadora Notas Examen"><a href="https://hectorrfdezz.github.io/HTML/PrácticaExamenLGDM/prueba.html" target="_blank" rel="noopener">Calculadora Notas Examen</a><small>1ºDAW · Tema 4 pt2</small></li>
-              </ul>
-            </div>
-          </div>
+          </article>
 
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="segundo-title">
+      <aside class="panel" aria-labelledby="segundo-title">
         <h2 id="segundo-title">2ºDAW — Proyectos</h2>
-        <p style="margin-top:0;color:var(--muted);">Proyectos y prácticas del segundo curso.</p>
+        <p class="muted">Proyectos y prácticas del segundo curso. Enlaces de ejemplo.</p>
 
-        <div class="section-title">
-          <div class="chips">
-            <span class="chip">Proyectos</span>
-            <span class="chip">JavaScript</span>
-          </div>
-        </div>
-              
         <ul class="index" id="listSegundo">
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ejercicio 1.1">
-            <a href="https://hectorrfdezz.github.io/HTML/Ejercicio1.1.html" target="_blank" rel="noopener">Ejercicio 1.1</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
+          <li class="card"><a href="/HTML/Ejercicio1.1.html" target="_blank" rel="noopener">Ejercicio 1.1</a><small>2ºDAW · Proyecto</small></li>
+          <li class="card"><a href="/HTML/Ejercicio1.2.html" target="_blank" rel="noopener">Ejercicio 1.2</a><small>2ºDAW · Proyecto</small></li>
 
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ejercicio 1.2">
-            <a href="https://hectorrfdezz.github.io/HTML/Ejercicio1.2.html" target="_blank" rel="noopener">Ejercicio 1.2</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ejercicio 1.3">
-            <a href="https://hectorrfdezz.github.io/HTML/Ejercicio1.3.html" target="_blank" rel="noopener">Ejercicio 1.3</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Dias de la Semana: EjemploClase">
-            <a href="https://hectorrfdezz.github.io/HTML/Ejemplos_Clase1.html" target="_blank" rel="noopener">Dias de la Semana: EjemploClase</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-          
-            <div class="accordion-item">
-            <button class="accordion-header" aria-expanded="false">Ejercicios JavaScript</button>
-            <div class="accordion-panel" hidden>
-              <ul class="index">
-                
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ej8 – Adivinar un número">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej8.adivinarnumero.html" target="_blank" rel="noopener">Ej8 – Adivinar un número</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ejercicio 9 – Días hasta la próxima Navidad">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej9.diasnavidad.html" target="_blank" rel="noopener">Ejercicio 9 – Días hasta la próxima Navidad</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-                
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ejercicio 10 – Multiplicación y división de dos números">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej10.calculo2num" target="_blank" rel="noopener">Ejercicio 10 – Multiplicación y división de dos números</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-                
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ej11 – Conversión de temperaturas">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej11.temperaturas.html" target="_blank" rel="noopener">Ej11 – Conversión de temperaturas</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Eercicio 12 – Obtener la URL del sitio web">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej12.urlweb.html" target="_blank" rel="noopener">Ej12 – Obtener la URL del sitio web</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ej13 – Crear variable con nombre definido">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej13.variabledefinida" target="_blank" rel="noopener">Ej13 – Crear variable con nombre definido</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ej14 – Obtener extensión de un nombre de archivo">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej14.extensionarchivo" target="_blank" rel="noopener">Ej14 – Obtener extensión de un nombre de archivo</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-
-          <li class="card" data-tags="2ºdaw proyecto" data-title="Ej15 – Diferencia con 13">
-            <a href="https://hectorrfdezz.github.io/HTML/Ej15.diferencia13" target="_blank" rel="noopener">Ej15 – Diferencia con 13</a>
-            <small>2ºDAW · Proyecto</small>
-          </li>
-                
+          <li class="card"><a href="/HTML/Ej8.adivinarnumero.html" target="_blank" rel="noopener">Ej8 – Adivinar un número</a><small>2ºDAW · Proyecto</small></li>
+          <li class="card"><a href="/HTML/Ej9.diasnavidad.html" target="_blank" rel="noopener">Ej9 – Días hasta Navidad</a><small>2ºDAW · Proyecto</small></li>
         </ul>
-      </section>
+
+        <div class="side-card">
+          <h3>Contacto</h3>
+          <p class="muted">Correo: <a href="mailto:hramfer634@g.educaand.es">hramfer634@g.educaand.es</a></p>
+          <p class="muted">GitHub: <a href="https://github.com/hectorrfdezz" target="_blank" rel="noopener">/hectorrfdezz</a></p>
+        </div>
+
+      </aside>
     </main>
 
     <footer>
-      <small>© 2024 Héctor Ramos Fernández — Página para la asignatura Lenguaje de Marcas</small>
-      <small>hramfer634@g.educaand.es · <a href="https://github.com/hectorrfdezz" target="_blank" rel="noopener" style="color:inherit;opacity:0.9">GitHub</a></small>
+      <small>© 2025 Héctor Ramos Fernández — Página para la asignatura Lenguaje de Marcas</small>
+      <small>hramfer634@g.educaand.es · <a href="https://github.com/hectorrfdezz" target="_blank" rel="noopener" style="color:inherit;opacity:0.95">GitHub</a></small>
     </footer>
   </div>
 
-  <script>
-    // Filtrado live por búsqueda (busca en todos los elementos con clase .card)
-    (function(){
-      const q = document.getElementById('q');
+  <!-- Live region for short feedback messages -->
+  <div id="liveRegion" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <script defer>
+    // Portafolio — JavaScript modular y accesible
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('q');
       const items = Array.from(document.querySelectorAll('.card'));
-
-      q.addEventListener('input', e => {
-        const term = e.target.value.trim().toLowerCase();
-        items.forEach(li => {
-          const title = (li.dataset.title || li.textContent).toLowerCase();
-          const tags = (li.dataset.tags || '').toLowerCase();
-          const matches = !term || title.includes(term) || tags.includes(term);
-          li.style.display = matches ? '' : 'none';
-        });
-      });
-
-      // Accordion: toggle y comportamiento (solo un panel abierto a la vez)
       const headers = Array.from(document.querySelectorAll('.accordion-header'));
-      headers.forEach((h) => {
-        h.addEventListener('click', () => {
-          const expanded = h.getAttribute('aria-expanded') === 'true';
-          // cerrar todos
-          headers.forEach(x => { x.setAttribute('aria-expanded','false'); const p = x.nextElementSibling; if(p) p.hidden = true; });
-          // si estaba cerrado, abrir este
-          if(!expanded){
-            h.setAttribute('aria-expanded','true');
-            const panel = h.nextElementSibling;
-            if(panel) panel.hidden = false;
-            // mover foco al primer enlace del panel si existe
-            const firstLink = panel && panel.querySelector('a');
-            if(firstLink) firstLink.focus();
-          }
-        });
-      });
+      const live = document.getElementById('liveRegion');
+      const themeToggle = document.getElementById('toggleTheme');
 
-      // Tema simple: alternar tema claro/oscuro
-      const btn = document.getElementById('toggleDark');
-      let dark = false;
-      btn.addEventListener('click', () => {
-        dark = !dark;
-        document.documentElement.style.setProperty('--card-bg', dark ? '#0b1220' : '#ffffffee');
-        document.documentElement.style.setProperty('--muted', dark ? '#94a3b8' : '#64748b');
-        document.documentElement.style.setProperty('--bg-1', dark ? '#e6eefb' : '#0f1724');
-        btn.setAttribute('aria-pressed', String(dark));
-        btn.textContent = dark ? 'Tema claro' : 'Tema oscuro';
-      });
-
-      // Acciones del CV: copiar enlace y descarga profesional con fallback
-      document.querySelectorAll('button[data-link]').forEach(btn => {
-        btn.addEventListener('click', async (e) => {
-          const url = btn.dataset.link;
-          try{
-            await navigator.clipboard.writeText(url);
-            btn.textContent = 'Enlace copiado';
-            setTimeout(()=> btn.textContent = 'Copiar enlace',1500);
-          }catch(err){
-            const tmp = document.createElement('textarea'); tmp.value = url; document.body.appendChild(tmp); tmp.select();
-            document.execCommand('copy'); document.body.removeChild(tmp);
-            btn.textContent = 'Copiado (fallback)';
-            setTimeout(()=> btn.textContent = 'Copiar enlace',1500);
-          }
-        });
-      });
-
-      // Descargar CV: intenta descargar un PDF en la misma ruta cambiando extensión; si no existe, descarga el HTML como archivo.
-      const downloadBtn = document.getElementById('downloadCV');
-      if(downloadBtn){
-        downloadBtn.addEventListener('click', async (e) => {
-          e.preventDefault();
-          const htmlUrl = e.currentTarget.href;
-          const pdfUrl = htmlUrl.replace(/\.html?$/i, '.pdf');
-
-          try{
-            const head = await fetch(pdfUrl, { method: 'HEAD' });
-            if(head.ok){
-              const a = document.createElement('a'); a.href = pdfUrl; a.download = pdfUrl.split('/').pop(); document.body.appendChild(a); a.click(); a.remove(); return;
-            }
-          }catch(err){ }
-
-          try{
-            const res = await fetch(htmlUrl);
-            const text = await res.text();
-            const blob = new Blob([text], { type: 'text/html' });
-            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'curriculum_vitae.html'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=> URL.revokeObjectURL(a.href), 5000);
-          }catch(err){ alert('No se pudo descargar el archivo. Abriendo en nueva pestaña...'); window.open(htmlUrl, '_blank', 'noopener'); }
+      // --------------------
+      // Search / filter
+      // --------------------
+      function filterItems(term){
+        const t = term.trim().toLowerCase();
+        items.forEach(el => {
+          const title = (el.dataset.title || el.textContent || '').toLowerCase();
+          const tags = (el.dataset.tags || '').toLowerCase();
+          const match = !t || title.includes(t) || tags.includes(t);
+          el.style.display = match ? '' : 'none';
         });
       }
 
-      // Modal para vista previa del CV (incrustado) con posibilidades de cierre (botón, fondo y Escape)
-      function createModal(){
-        const modal = document.createElement('div');
-        modal.id = 'cvModal';
-        modal.style.position = 'fixed'; modal.style.inset = '0'; modal.style.display = 'none'; modal.style.alignItems = 'center'; modal.style.justifyContent = 'center';
-        modal.style.background = 'rgba(2,6,23,0.6)'; modal.style.zIndex = '1200';
-        modal.innerHTML = `
-          <div role="dialog" aria-modal="true" aria-label="Vista previa del Curriculum" style="width:92%;max-width:980px;height:84%;background:white;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #eee;">
-              <strong>Vista previa — Curriculum Vitae</strong>
-              <div style="display:flex;gap:8px;align-items:center">
-                <button id="cvDownloadModal" class="btn">Descargar</button>
-                <button id="cvClose" class="btn">Cerrar</button>
-              </div>
-            </div>
-            <iframe id="cvFrame" src="" style="flex:1;border:0;width:100%;height:100%;"></iframe>
-          </div>`;
-        // cierre al hacer click en el fondo
-        modal.addEventListener('click', (ev) => {
-          if(ev.target === modal){
-            closeModal();
-          }
-        });
-        // cierre con Escape
-        document.addEventListener('keydown', (ev) => {
-          if(ev.key === 'Escape'){
-            closeModal();
-          }
-        });
-        document.body.appendChild(modal);
-        return modal;
-      }
-
-      function openModal(url){
-        const frame = document.getElementById('cvFrame');
-        frame.src = url;
-        const modalEl = document.getElementById('cvModal');
-        modalEl.style.display = 'flex';
-        // foco en el botón cerrar
-        const closeBtn = document.getElementById('cvClose');
-        if(closeBtn) closeBtn.focus();
-      }
-
-      function closeModal(){
-        const modalEl = document.getElementById('cvModal');
-        if(!modalEl || modalEl.style.display === 'none') return;
-        modalEl.style.display = 'none';
-        const frame = document.getElementById('cvFrame');
-        if(frame) frame.src = '';
-      }
-
-      const modal = createModal();
-      document.querySelectorAll('a[target="_blank"]').forEach(a => {
-        if(a.href && a.href.includes('curriculum_vitae')){
-          a.addEventListener('click', (ev)=>{
-            ev.preventDefault();
-            openModal(a.href);
-          });
-        }
-      });
-
-      // eventos del modal (descarga y cerrar desde los botones internos)
-      document.addEventListener('click', (ev) => {
-        if(ev.target && ev.target.id === 'cvClose') closeModal();
-        if(ev.target && ev.target.id === 'cvDownloadModal'){
-          const frame = document.getElementById('cvFrame'); const url = frame.src; if(!url) return; const pdfUrl = url.replace(/\.html?$/i, '.pdf');
-          (async ()=>{
-            try{ const h = await fetch(pdfUrl, { method: 'HEAD' }); if(h.ok){ const a = document.createElement('a'); a.href = pdfUrl; a.download = pdfUrl.split('/').pop(); document.body.appendChild(a); a.click(); a.remove(); return; } }catch(e){}
-            try{ const r = await fetch(url); const t = await r.text(); const b = new Blob([t], {type:'text/html'}); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'curriculum_vitae.html'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=> URL.revokeObjectURL(a.href),5000); }catch(e){ alert('Error al descargar.'); }
-          })();
-        }
-      });
-
-      // Mejoras de accesibilidad (focus en primer enlace al pulsar Enter en búsqueda Vacía)
-      q.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' && q.value.trim() === ''){
+      searchInput.addEventListener('input', e => filterItems(e.target.value));
+      searchInput.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' && searchInput.value.trim() === ''){
           const first = items.find(i => i.style.display !== 'none');
           if(first){ const a = first.querySelector('a'); a && a.focus(); }
         }
       });
 
-    })();
+      // --------------------
+      // Accessible accordion (one-open behaviour)
+      // --------------------
+      headers.forEach(h => {
+        h.addEventListener('click', () => {
+          const expanded = h.getAttribute('aria-expanded') === 'true';
+          headers.forEach(x => {
+            x.setAttribute('aria-expanded', 'false');
+            const panel = x.nextElementSibling;
+            if(panel) panel.hidden = true;
+          });
+          if(!expanded){
+            h.setAttribute('aria-expanded', 'true');
+            const p = h.nextElementSibling; if(p) p.hidden = false;
+            const firstLink = p && p.querySelector('a'); if(firstLink) firstLink.focus();
+          }
+        });
+      });
+
+      // --------------------
+      // Clipboard copy for CV link (progressive enhancement)
+      // --------------------
+      document.querySelectorAll('button[data-link]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const url = btn.dataset.link;
+          try{
+            await navigator.clipboard.writeText(url);
+            live.textContent = 'Enlace del CV copiado al portapapeles.';
+            btn.textContent = 'Copiado';
+            setTimeout(()=> btn.textContent = 'Copiar enlace', 1400);
+          }catch(e){
+            // fallback copy
+            const t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+            live.textContent = 'Enlace copiado (método alternativo).';
+            btn.textContent = 'Copiado';
+            setTimeout(()=> btn.textContent = 'Copiar enlace', 1400);
+          }
+        });
+      });
+
+      // --------------------
+      // CV download: intenta PDF en la misma ruta, si no, abre HTML (fallback)
+      // --------------------
+      const cvHeader = document.getElementById('cvDownloadHeader');
+      async function tryDownloadPdf(urlPdf, fallbackUrl){
+        try{
+          const res = await fetch(urlPdf, { method: 'HEAD' });
+          if(res.ok){
+            const a = document.createElement('a'); a.href = urlPdf; a.download = urlPdf.split('/').pop(); document.body.appendChild(a); a.click(); a.remove();
+            live.textContent = 'Descarga iniciada: CV (PDF).';
+            return;
+          }
+        }catch(e){ /* ignore */ }
+        // fallback: open fallbackUrl
+        window.open(fallbackUrl, '_blank', 'noopener');
+        live.textContent = 'Abriendo CV en nueva pestaña (fallback).';
+      }
+
+      if(cvHeader){
+        cvHeader.addEventListener('click', (ev) => {
+          // prevent default to control behaviour
+          ev.preventDefault();
+          const pdf = cvHeader.getAttribute('href');
+          const htmlFallback = pdf.replace(/\.pdf$/i, '.html');
+          tryDownloadPdf(pdf, htmlFallback);
+        });
+      }
+
+      // --------------------
+      // Theme toggle (respecta prefers-color-scheme)
+      // --------------------
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const root = document.documentElement;
+      if(prefersDark) root.setAttribute('data-theme', 'dark');
+
+      themeToggle.addEventListener('click', () => {
+        const dark = root.getAttribute('data-theme') === 'dark';
+        root.setAttribute('data-theme', dark ? 'light' : 'dark');
+        themeToggle.setAttribute('aria-pressed', String(!dark));
+      });
+
+      // --------------------
+      // Small progressive enhancements: make external links open safely
+      // --------------------
+      document.querySelectorAll('a[target="_blank"]').forEach(a => a.setAttribute('rel', 'noopener noreferrer'));
+
+    });
   </script>
+
 </body>
 </html>

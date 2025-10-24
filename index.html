@@ -16,29 +16,30 @@
 
   <style>
     /* =====================
-       Theme variables
+       Theme variables (colores profesionales)
        ===================== */
     :root{
-      --bg: #f7fafc;
-      --panel: #ffffff;
-      --text: #0b1220;
-      --muted: #6b7280;
-      --accent-1: #ff7e5f;
-      --accent-2: #feb47b;
+      --bg: #f4f6f8;                 /* fondo general muy claro */
+      --panel: #ffffff;              /* fondo de tarjetas/paneles */
+      --text: #0b1220;               /* color principal del texto */
+      --muted: #6b7280;              /* texto secundario */
+      --accent-1: #0b63bd;           /* azul corporativo */
+      --accent-2: #0ea5a4;           /* verde azulado como acento secundario */
       --radius: 12px;
-      --glass: rgba(255,255,255,0.9);
-      --shadow: 0 8px 30px rgba(6,10,18,0.08);
-      --focus: rgba(99,102,241,0.18);
+      --glass: rgba(255,255,255,0.92);
+      --shadow: 0 10px 30px rgba(12,18,24,0.06);
+      --focus: rgba(11,99,189,0.18);
       --max-width: 1200px;
     }
 
     [data-theme="dark"]{
-      --bg: #071023;
-      --panel: #081226;
+      --bg: #061027;
+      --panel: #0b1220;
       --text: #e6eefb;
-      --muted: #94a3b8;
-      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --muted: #9aa6be;
+      --shadow: 0 12px 36px rgba(2,6,23,0.6);
       --glass: rgba(11,18,32,0.72);
+      --focus: rgba(14,165,164,0.16);
     }
 
     /* Minimal reset */
@@ -47,7 +48,7 @@
     body{
       margin:0;
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      background: linear-gradient(180deg,var(--bg), #ffffff); /* sutil degradado neutro */
       -webkit-font-smoothing:antialiased;
       color:var(--text);
       min-height:100vh;
@@ -61,7 +62,7 @@
     .frame{
       width:100%;
       max-width:var(--max-width);
-      border-radius:18px;
+      border-radius:14px;
       overflow:hidden;
       box-shadow:var(--shadow);
       background:linear-gradient(180deg, var(--glass), rgba(255,255,255,0.86));
@@ -74,22 +75,22 @@
       align-items:center;
       gap:18px;
       padding:20px 28px;
-      background:linear-gradient(90deg, rgba(11,18,32,0.95), rgba(11,18,32,0.9));
+      background:linear-gradient(90deg,var(--accent-1), rgba(11,99,189,0.9));
       color:white;
     }
 
     .brand{display:flex;align-items:center;gap:14px}
     .logo{
-      width:60px;height:60px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Playfair Display, serif;font-weight:700;font-size:24px;color:white;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 20px rgba(0,0,0,0.18);
+      width:60px;height:60px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:Playfair Display, serif;font-weight:700;font-size:24px;color:white;background:linear-gradient(135deg,var(--accent-2),var(--accent-1));box-shadow:0 8px 20px rgba(0,0,0,0.12);
     }
 
     .title{line-height:1}
     h1{margin:0;font-size:1.15rem}
-    .meta{opacity:0.95;font-size:0.9rem;color:rgba(255,255,255,0.9)}
+    .meta{opacity:0.95;font-size:0.9rem;color:rgba(255,255,255,0.92)}
 
     nav{margin-left:auto;display:flex;gap:10px;align-items:center}
     .btn{background:transparent;border:0;color:inherit;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
-    .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 6px 18px rgba(11,99,189,0.12)}
     .btn:focus{outline:3px solid var(--focus)}
 
     main{
@@ -101,25 +102,25 @@
     }
 
     /* Panels */
-    .panel{background:var(--panel);border-radius:12px;padding:18px;box-shadow:var(--shadow);overflow:auto}
+    .panel{background:var(--panel);border-radius:10px;padding:18px;box-shadow:var(--shadow);overflow:auto}
     .panel h2{margin-top:0;font-size:1.05rem}
     .muted{color:var(--muted);font-size:0.95rem}
 
     .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:var(--muted)}
+    .chip{background:transparent;border:1px solid rgba(11,99,189,0.06);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:var(--muted)}
 
     /* Grid of cards */
     ul.index{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.98),#fbfbfd);border-radius:10px;padding:12px;border:1px solid rgba(10,15,25,0.04);display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:transform .15s ease,box-shadow .15s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.06)}
-    .card a{color:var(--text);text-decoration:none;font-weight:700}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.98),#fbfbfd);border-radius:8px;padding:14px;border:1px solid rgba(10,15,25,0.04);display:flex;flex-direction:column;gap:8px;align-items:flex-start;transition:transform .15s ease,box-shadow .15s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(11,99,189,0.06)}
+    .card a{color:var(--accent-1);text-decoration:none;font-weight:700}
     .card small{color:var(--muted)}
 
     aside{display:flex;flex-direction:column;gap:12px}
-    .side-card{padding:16px;border-radius:12px}
+    .side-card{padding:16px;border-radius:10px}
     .list-links a{display:inline-block;padding:10px;border-radius:8px;text-decoration:none;font-weight:700;color:var(--text);background:#fff;border:1px solid rgba(10,15,25,0.04)}
 
-    footer{padding:12px 20px;background:linear-gradient(90deg,#0b1220,#0f1724);color:#dbeafe;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+    footer{padding:12px 20px;background:linear-gradient(90deg,#07162a,#0b2340);color:#dbeafe;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
     footer small{opacity:0.95}
 
     /* Search */

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curriculum - HRF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <style>
+ 
+    :root{
+      --bg: #f7f7fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --accent:#6366f1;      
+      --accent-2:#06b6d4;   
+      --ring: rgba(99,102,241,.25);
+      --border:#e5e7eb;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b0d12;
+        --card:#111418;
+        --text:#e5e7eb;
+        --muted:#a1a1aa;
+        --border:#1f2430;
+        --ring: rgba(99,102,241,.35);
+      }
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 100% -10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 60%),
+                  radial-gradient(900px 700px at -10% 10%, color-mix(in oklab, var(--accent-2) 10%, transparent), transparent 60%),
+                  var(--bg);
+    }
+
+    .wrap{
+      max-width: 1020px;
+      margin: 32px auto;
+      padding: 0 20px 80px;
+    }
+
+    .cv{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      overflow: clip;
+    }
+
+    /* Header */
+    .hero{
+      position: relative;
+      padding: 28px 28px 28px 28px;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      align-items:center;
+      gap:24px;
+      background:
+        linear-gradient(135deg, color-mix(in oklab, var(--accent) 28%, transparent), transparent 55%),
+        linear-gradient(45deg, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 60%);
+      border-bottom:1px solid var(--border);
+    }
+    .id{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .avatar{
+      width:86px; height:86px; border-radius:50%;
+      border:2px dashed color-mix(in oklab, var(--accent) 50%, var(--border));
+      display:grid; place-items:center; font-weight:700; color:var(--muted);
+      background: color-mix(in oklab, var(--card) 92%, var(--bg));
+      user-select:none;
+    }
+    .name{
+      font-size: clamp(22px, 4vw, 34px);
+      line-height:1.15; margin:0;
+    }
+    .role{
+      margin:4px 0 0; color:var(--muted);
+      font-size: clamp(14px, 2.2vw, 16px);
+    }
+
+    .btns{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none; border:1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 80%, var(--bg)), var(--card));
+      padding:10px 14px; border-radius: 12px; cursor:pointer; font-weight:600;
+      box-shadow: 0 2px 0 0 color-mix(in oklab, var(--accent) 30%, transparent);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn:hover{ transform: translateY(-1px) }
+    .btn.primary{
+      border-color: transparent;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 6px 14px var(--ring);
+    }
+
+    /* Layout principal */
+    .grid{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr }
+      .aside{ border-right:0; border-top:1px solid var(--border) }
+    }
+
+    .aside{
+      border-right:1px solid var(--border);
+      padding: 24px;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 6%, transparent), transparent);
+    }
+    .main{
+      padding: 24px;
+    }
+
+    /* Bloques */
+    .block + .block{ margin-top: 22px }
+    .h{
+      display:flex; align-items:center; gap:10px;
+      font-size: 14px; letter-spacing:.08em; text-transform: uppercase;
+      color: color-mix(in oklab, var(--text) 76%, var(--muted));
+      margin:0 0 12px; font-weight:800;
+    }
+    .h .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: var(--card);
+      border-radius: 14px;
+      padding:14px 14px;
+    }
+
+    .list{
+      display:grid; gap:10px;
+    }
+    .kv{
+      display:grid; grid-template-columns: 120px 1fr; gap:8px 14px; align-items:start;
+      font-size: 15px;
+    }
+    .kv b{ color: color-mix(in oklab, var(--text) 86%, var(--muted)); font-weight:700 }
+    .muted{ color:var(--muted) }
+
+    /* Contacto */
+    .contact{
+      display:grid; gap:10px;
+    }
+    .contact a{
+      color:inherit; text-decoration:none; border-radius:10px; padding:8px 10px;
+      border:1px dashed color-mix(in oklab, var(--accent) 30%, var(--border));
+    }
+    .ci{ display:flex; gap:10px; align-items:center }
+    .ci svg{ width:18px; height:18px; flex:0 0 auto }
+
+    /* Habilidades */
+    .skills{ display:grid; gap:10px }
+    .skill{
+      display:grid; gap:6px;
+    }
+    .skill b{ font-size:14px }
+    .bar{
+      --value: 70%;
+      height:10px; border-radius:999px; background: color-mix(in oklab, var(--muted) 22%, transparent);
+      border:1px solid var(--border); position:relative; overflow:hidden;
+    }
+    .bar::after{
+      content:""; position:absolute; inset:0;
+      width:var(--value);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius:inherit;
+    }
+
+    /* Formación (timeline) */
+    .timeline{ display:grid; gap:12px }
+    .tl{
+      display:grid; gap:6px; padding-left:20px; position:relative;
+    }
+    .tl::before{
+      content:""; position:absolute; left:6px; top:2px; bottom: -6px;
+      width:2px; background: color-mix(in oklab, var(--accent) 35%, var(--border));
+    }
+    .tl .dot{
+      position:absolute; left:0; top:2px; width:12px; height:12px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+    }
+    .tl h4{ margin:0; font-size:16px }
+    .tl .meta{ font-size:13px; color:var(--muted) }
+
+    /* Acerca de mí */
+    .about p{ margin:0 0 10px }
+
+    /* Impresión */
+    @page{ size: A4; margin: 16mm }
+    @media print{
+      .wrap{ margin:0; padding:0 }
+      .hero{ background:none; border-bottom:1px solid #ccc }
+      .btns{ display:none !important }
+      body{ background:#fff }
+      .cv{ box-shadow:none; border:0 }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="cv" aria-label="Currículum">
+      <!-- ===========
+        CABECERA
+        - Sustituye [Iniciales], [Tu Nombre] y [Tu Rol]
+        - Para foto: cambia la <div class="avatar"> por una <img alt="Foto" class="avatar" src="ruta.jpg">
+      ============ -->
+      <header class="hero">
+        <div class="id">
+          <img alt="Foto" class="avatar" src="ruta.jpg">
+          <div>
+            <h1 class="name">Héctor Ramos Fernández</h1>
+            <p class="role">El Puerto de Santa María</p>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+          <button class="btn" id="copyMail">Copiar email</button>
+        </div>
+      </header>
+
+      <div class="grid">
+        <!-- ========= LATERAL ========= -->
+        <aside class="aside">
+          <!-- Información personal -->
+          <div class="block">
+            <h3 class="h"><span class="dot"></span> Información personal</h3>
+            <div class="card">
+              <div class="kv">
+                <b>Nombre</b> <span>Héctor</span>
+                <b>Ubicación</b> <span>Cádiz, España</span>
+                <b>Fecha nac.</b> <span>22/04/2006</span>
+                <b>Idiomas</b> <span>Español (Nativo), Inglés (nivel B1)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="block">
+            <h3 class="h"><span class="dot"></span> Contacto</h3>
+            <div class="list">
+              <a class="ci" id="emailLink" href="mailto:hectorrfdezz@gmail.com">
+                <!-- email icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16v12H4z"/><path stroke-width="2" d="M22 7 12 13 2 7"/></svg>
+                <span>hectorrfdezz@gmail.com</span>
+              </a>
+              <a class="ci" href="tel:+34654641994">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.78.57 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.14a2 2 0 0 1 2.11-.45c.85.26 1.73.45 2.63.57A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+34 654 64 19 94</span>
+              </a>
+              <a class="ci" href="https://hectorrfdezz.github.io/HTML" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.27.82-.6v-2.1c-3.34.73-4.04-1.6-4.04-1.6-.54-1.37-1.32-1.73-1.32-1.73-1.07-.73.08-.72.08-.72 1.18.08 1.8 1.2 1.8 1.2 1.05 1.8 2.76 1.28 3.43.98.1-.76.4-1.29.72-1.58-2.66-.31-5.46-1.34-5.46-5.96 0-1.32.47-2.4 1.24-3.26-.12-.3-.54-1.55.12-3.22 0 0 1.02-.33 3.34 1.24.98-.28 2.03-.42 3.08-.42s2.1.14 3.08.42c2.32-1.57 3.34-1.24 3.34-1.24.66 1.67.24 2.92.12 3.22.78.86 1.24 1.94 1.24 3.26 0 4.63-2.8 5.64-5.47 5.95.42.36.78 1.07.78 2.16v3.2c0 .33.22.7.82.6A12 12 0 0 0 12 .5z"/></svg>
+                <span>@hectorrfdezz</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Habilidades -->
+          <div class="block">
+            <h3 class="h"><span class="dot"></span> Habilidades</h3>
+            <div class="card skills">
+              <!-- Duplica .skill y ajusta style="--value: %;" -->
+              <div class="skill">
+                <b>HTML/CSS</b>
+                <div class="bar" style="--value: 90%"></div>
+              </div>
+              <div class="skill">
+                <b>JavaScript</b>
+                <div class="bar" style="--value: 80%"></div>
+              </div>
+              <div class="skill">
+                <b>Git</b>
+                <div class="bar" style="--value: 70%"></div>
+              </div>
+              <div class="skill">
+                <b>Comunicación</b>
+                <div class="bar" style="--value: 95%"></div>
+          </div>
+        </aside>
+
+        <!-- ========= CONTENIDO ========= -->
+        <section class="main">
+          <!-- Acerca de mí -->
+          <div class="block about">
+            <h3 class="h"><span class="dot"></span> Acerca de mí</h3>
+            <div class="card">
+              <p>¡Buenas! Me llamo Héctor, soy un chico de 19 años que actualmente se encuentra cursando un Grado Superior de Desarrollo de Aplicaciones Web en el IES Mar de Cádiz. Me considero una persona comprometida, reflexiva y en constante evolución, tanto a nivel personal como profesional. Me esfuerzo por mejorar cada día. Disfruto creando soluciones que realmente aporten valor.</p>
+            </div>
+          </div>
+
+          <!-- Formación académica -->
+          <div class="block">
+            <h3 class="h"><span class="dot"></span> Formación académica</h3>
+            <div class="card timeline">
+              <!-- Ítem -->
+              <div class="tl">
+                <span class="dot" aria-hidden="true"></span>
+                <h4><strong>Bachillerato Ciencias Tecnológicas</strong> — SAFA San Luis</h4>
+                <div class="meta">[2022 – 2024] · [Cádiz, España]</div>
+               
+              </div>
+              <!-- Copia/pega para más estudios -->
+              <div class="tl">
+                <span class="dot" aria-hidden="true"></span>
+                <h4><strong>Desarrollo Aplicaciones Web (DAW)</strong> — IES Mar de Cádiz</h4>
+                <div class="meta">[2024 – En curso] · [Cádiz, España]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experiencia -->
+<div class="block">
+  <h3 class="h"><span class="dot"></span> Experiencia</h3>
+  <div class="card timeline">
+    
+    <!-- Experiencia 1 -->
+    <div class="tl">
+      <span class="dot"></span>
+      <h4><strong>Desarrollador Web - Prácticas 1ºDAW</strong> — AVANZA Fisioterapia</h4>
+      <div class="meta">2025 · El Puerto de Santa María</div>
+      <ul class="muted" style="margin:6px 0 0 0; padding-left:18px">
+        <li>Participación en la creacion y el desarrollo de la web.</li>
+        <li>Optimización del rendimiento, estructura visual y usabilidad.</li>
+        <li>Uso de código HTML/CSS para su elaboración, además de Hostinger</li>
+        <li>
+          <a href="https://avanzafisio.es" target="_blank" rel="noopener"
+            style="color:var(--accent);text-decoration:none;">
+            https://avanzafisio.es
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Experiencia 2 -->
+    <div class="tl">
+      <span class="dot"></span>
+      <h4><strong>Proyecto Personal</strong> — Portafolio académico</h4>
+      <div class="meta">2024 – Actualidad · Proyecto propio</div>
+      <ul class="muted" style="margin:6px 0 0 0; padding-left:18px">
+        <li>Diseño y desarrollo de un portafolio web para presentar ejercicios y proyectos.</li>
+        <li>Implementación con HTML, CSS y JavaScript.</li>
+        <li>Organización del contenido por curso y temas.</li>
+        <li>
+          <a href="https://hectorrfdezz.github.io/HTML"
+             target="_blank" rel="noopener"
+             style="color:var(--accent);text-decoration:none;">
+            https://hectorrfdezz.github.io/HTML
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+          <!-- (Opcional) Experiencia: déjalo si lo necesitas más adelante -->
+          <!--
+          <div class="block">
+            <h3 class="h"><span class="dot"></span> Experiencia</h3>
+            <div class="card timeline">
+              <div class="tl">
+                <span class="dot"></span>
+                <h4><strong>[Puesto]</strong> — [Empresa]</h4>
+                <div class="meta">[MM/AAAA – MM/AAAA] · [Ciudad/Remoto]</div>
+                <ul class="muted" style="margin:6px 0 0 0; padding-left:18px">
+                  <li>[Responsabilidad / logro medible]</li>
+                  <li>[Responsabilidad / logro medible]</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          -->
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Copiar email con un clic
+    (function(){
+      const btn = document.getElementById('copyMail');
+      const emailLink = document.getElementById('emailLink');
+      if(btn && emailLink){
+        btn.addEventListener('click', async () => {
+          const mail = emailLink.getAttribute('href').replace('mailto:', '');
+          try{
+            await navigator.clipboard.writeText(mail);
+            const old = btn.textContent;
+            btn.textContent = '¡Email copiado!';
+            setTimeout(()=> btn.textContent = old, 1400);
+          }catch(e){
+            alert('No se pudo copiar. Email: ' + mail);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

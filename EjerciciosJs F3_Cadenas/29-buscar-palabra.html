@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>29 - Buscar palabra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif; margin:40px; line-height:1.4}
+    label{display:block; margin-top:12px; font-weight:600}
+    input{padding:8px; width:100%; max-width:420px}
+    button{margin-top:14px; padding:10px 14px; cursor:pointer}
+    .salida{margin-top:18px; padding:12px; background:#f5f5f5; border-radius:8px}
+  </style>
+</head>
+<body>
+  <h1>29) Buscar palabra dentro de una cadena</h1>
+
+  <p>Introduce una frase y una palabra a buscar. Busca coincidencias exactas.</p>
+
+  <label for="frase">Frase</label>
+  <input id="frase" type="text" value="El zorro marrón saltó sobre otro zorro">
+
+  <label for="palabra">Palabra a buscar</label>
+  <input id="palabra" type="text" value="zorro">
+
+  <button id="btn">Buscar</button>
+
+  <div class="salida">
+    <strong>Resultado:</strong>
+    <div id="resultado">(aquí aparecerá el resultado)</div>
+  </div>
+
+  <script>
+    function palabraBusqueda(frase, palabra) {
+      const palabras = frase.toLowerCase().split(/\\W+/); // separa por palabras
+      const objetivo = palabra.toLowerCase();
+      let contador = 0;
+
+      for (let p of palabras) {
+        if (p === objetivo) contador++;
+      }
+
+      return contador;
+    }
+
+    document.getElementById("btn").addEventListener("click", function () {
+      const frase = document.getElementById("frase").value;
+      const palabra = document.getElementById("palabra").value;
+      const resultado = palabraBusqueda(frase, palabra);
+      document.getElementById("resultado").textContent =
+        "La palabra '" + palabra + "' aparece " + resultado + " veces.";
+    });
+  </script>
+</body>
+</html>

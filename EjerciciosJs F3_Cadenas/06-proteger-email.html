@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>06 - Proteger Email</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif; margin:40px; line-height:1.4}
+    label{display:block; margin-top:12px; font-weight:600}
+    input{padding:8px; width:100%; max-width:420px}
+    button{margin-top:14px; padding:10px 14px; cursor:pointer}
+    .salida{margin-top:18px; padding:12px; background:#f5f5f5; border-radius:8px}
+    code{background:#eee; padding:2px 4px; border-radius:4px}
+  </style>
+</head>
+<body>
+  <h1>06) Proteger dirección de correo electrónico</h1>
+
+  <p>Introduce un correo y pulsa <b>Proteger</b> para ocultarlo parcialmente.</p>
+
+  <label for="email">Correo electrónico:</label>
+  <input id="email" type="text" value="rob_hood@example.com">
+
+  <button id="btn">Proteger correo</button>
+
+  <div class="salida">
+    <strong>Resultado:</strong>
+    <div id="resultado">(aquí aparecerá la salida)</div>
+  </div>
+
+  <script>
+    function protege_email(email) {
+      email = email.trim();
+      const partes = email.split("@");
+      if (partes.length !== 2) return "Correo no válido";
+      const nombre = partes[0];
+      const dominio = partes[1];
+      return nombre.slice(0, 3) + " ... @ " + dominio;
+    }
+
+    const $ = (id) => document.getElementById(id);
+    $('btn').addEventListener('click', () => {
+      const correo = $('email').value;
+      const res = protege_email(correo);
+      $('resultado').textContent = res;
+      console.log("Resultado protegido:", res);
+    });
+  </script>
+</body>
+</html>

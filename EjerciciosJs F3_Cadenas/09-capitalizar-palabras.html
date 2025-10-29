@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>09 - Capitalizar palabras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif; margin:40px; line-height:1.4}
+    label{display:block; margin-top:12px; font-weight:600}
+    input{padding:8px; width:100%; max-width:420px}
+    button{margin-top:14px; padding:10px 14px; cursor:pointer}
+    .salida{margin-top:18px; padding:12px; background:#f5f5f5; border-radius:8px}
+  </style>
+</head>
+<body>
+  <h1>09) Capitalizar palabras</h1>
+
+  <p>Introduce un texto y pulsa <b>Capitalizar</b> para poner en mayúscula la primera letra de cada palabra.</p>
+
+  <label for="texto">Texto</label>
+  <input id="texto" type="text" value="esto es una prueba de capitalización">
+
+  <button id="btn">Capitalizar</button>
+
+  <div class="salida">
+    <strong>Resultado:</strong>
+    <div id="resultado">(aquí aparecerá el resultado)</div>
+  </div>
+
+  <script>
+    function capitalizarPalabras(texto) {
+      return texto
+        .split(" ")
+        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+        .join(" ");
+    }
+
+    document.getElementById("btn").addEventListener("click", function () {
+      const texto = document.getElementById("texto").value;
+      const resultado = capitalizarPalabras(texto);
+      document.getElementById("resultado").textContent = resultado;
+    });
+  </script>
+</body>
+</html>

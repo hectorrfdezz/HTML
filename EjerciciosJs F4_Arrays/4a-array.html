@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>4a — Suma de una matriz</title>
+<h2>4a) Suma</h2>
+<input id="nums" placeholder="Ej: 1,2,3,4,5,6">
+<button onclick="calc()">Calcular</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const arr = document.getElementById('nums').value.split(',').map(Number);
+  const suma = arr.reduce((a,b)=>a+b,0);
+  document.getElementById('out').textContent = 'Resultado: ' + suma;
+}
+</script>

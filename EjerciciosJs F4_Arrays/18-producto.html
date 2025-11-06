@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>18 — Producto de una matriz</title>
+<h2>18) Producto</h2>
+<input id="nums" placeholder="Ej: 2,3,4">
+<button onclick="calc()">Calcular</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const arr = document.getElementById('nums').value.split(',').map(Number);
+  const prod = arr.reduce((a,b)=>a*b,1);
+  document.getElementById('out').textContent = 'Producto: ' + prod;
+}
+</script>

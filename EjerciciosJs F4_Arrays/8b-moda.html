@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>8b — Elemento más frecuente</title>
+<h2>8b) Más frecuente</h2>
+<input id="items" placeholder="Ej: 1,2,2,3,3,3">
+<button onclick="calc()">Buscar</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const arr = document.getElementById('items').value.split(',').map(x=>x.trim()).filter(x=>x!=='');
+  if(arr.length===0){ document.getElementById('out').textContent='Introduce valores'; return; }
+  const freq = {};
+  for(const v of arr) freq[v]=(freq[v]||0)+1;
+  let mejor=arr[0], max=0;
+  for(const k in freq){ if(freq[k]>max){ max=freq[k]; mejor=k; } }
+  document.getElementById('out').textContent = `Más frecuente: ${mejor} (${max} veces)`;
+}
+</script>

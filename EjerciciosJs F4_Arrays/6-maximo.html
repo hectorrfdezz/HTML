@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>6 — Máximo en una matriz</title>
+<h2>6) Máximo</h2>
+<input id="nums" placeholder="Ej: 11,3,16,90">
+<button onclick="calc()">Calcular</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const arr = document.getElementById('nums').value.split(',').map(Number);
+  const max = Math.max(...arr);
+  document.getElementById('out').textContent = 'Máximo: ' + max;
+}
+</script>

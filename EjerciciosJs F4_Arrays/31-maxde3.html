@@ -1,0 +1,12 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>31 — Mayor de tres</title>
+<h2>31) Mayor de tres</h2>
+<input id="a" placeholder="n1"> <input id="b" placeholder="n2"> <input id="c" placeholder="n3">
+<button onclick="calc()">Calcular</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const a=+document.getElementById('a').value, b=+document.getElementById('b').value, c=+document.getElementById('c').value;
+  document.getElementById('out').textContent = 'Mayor: ' + Math.max(a,b,c);
+}
+</script>

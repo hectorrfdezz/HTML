@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>8a — Diferencia en días</title>
+<h2>8a) Diferencia de días</h2>
+<input type="date" id="f1"> <input type="date" id="f2">
+<button onclick="calc()">Calcular</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const d1 = new Date(document.getElementById('f1').value);
+  const d2 = new Date(document.getElementById('f2').value);
+  if(isNaN(d1)||isNaN(d2)){ document.getElementById('out').textContent='Selecciona ambas fechas'; return; }
+  const MS = 24*60*60*1000;
+  const only = d=>new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const dias = Math.abs((only(d2)-only(d1))/MS);
+  document.getElementById('out').textContent = 'Diferencia en días: ' + dias;
+}
+</script>

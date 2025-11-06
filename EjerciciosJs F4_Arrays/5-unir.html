@@ -1,0 +1,14 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>5 — Unir elementos</title>
+<h2>5) Unir en cadena</h2>
+<input id="items" placeholder="Ej: a,b,c,d">
+<input id="sep" placeholder="Separador (opcional)" value=" ">
+<button onclick="run()">Unir</button>
+<p id="out"></p>
+<script>
+function run(){
+  const arr = document.getElementById('items').value.split(',');
+  const sep = document.getElementById('sep').value ?? ',';
+  document.getElementById('out').textContent = 'Cadena: ' + arr.join(sep);
+}
+</script>

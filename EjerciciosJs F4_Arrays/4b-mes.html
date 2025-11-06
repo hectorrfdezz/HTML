@@ -1,0 +1,16 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>4b — Días del mes</title>
+<h2>4b) Días del mes</h2>
+<input id="mes" placeholder="Mes (1-12)">
+<input id="anio" placeholder="Año (Ej: 2025)">
+<button onclick="calc()">Ver días</button>
+<p id="out"></p>
+<script>
+function calc(){
+  const m = +document.getElementById('mes').value;
+  const y = +document.getElementById('anio').value;
+  if(m<1||m>12||!y){ document.getElementById('out').textContent='Datos no válidos'; return; }
+  const dias = new Date(y, m, 0).getDate();
+  document.getElementById('out').textContent = `Este mes tiene ${dias} días`;
+}
+</script>

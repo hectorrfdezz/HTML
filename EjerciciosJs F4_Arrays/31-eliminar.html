@@ -1,0 +1,15 @@
+<!doctype html><html lang="es"><meta charset="utf-8">
+<title>Eliminar elemento</title>
+<h2>Eliminar elemento específico</h2>
+<input id="items" placeholder="Ej: 2,4,5,9">
+<input id="val" placeholder="Valor a eliminar (Ej: 5)">
+<button onclick="run()">Eliminar</button>
+<p id="out"></p>
+<script>
+function run(){
+  const arr = document.getElementById('items').value.split(',').map(Number);
+  const val = Number(document.getElementById('val').value);
+  const res = arr.filter(x => x !== val);
+  document.getElementById('out').textContent = 'Resultado: [' + res.join(', ') + ']';
+}
+</script>

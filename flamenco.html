@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Palos del flamenco</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    .bloque {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    select, button {
+      margin-top: 5px;
+      padding: 5px 8px;
+    }
+    #resultadoTodo, #resultadoDato, #compas {
+      margin-top: 10px;
+    }
+    .num {
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Palos del flamenco</h1>
+
+  <div class="bloque">
+    <h2>1. Datos completos de un palo</h2>
+
+    <label for="paloTodo">Elige un palo:</label>
+    <select id="paloTodo">
+      <option value=""> Selecciona </option>
+      <option value="solea">Soleá</option>
+      <option value="alegrias">Alegrías</option>
+      <option value="bulerias">Bulerías</option>
+      <option value="tientos">Tientos</option>
+      <option value="tangos">Tangos</option>
+      <option value="seguidillas">Seguiriyas</option>
+      <option value="fandangos">Fandangos</option>
+    </select>
+
+    <div id="resultadoTodo">
+      <em>Selecciona un palo para ver su información.</em>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <h2>2. Ver un dato concreto</h2>
+
+    <label for="paloDato">Palo:</label>
+    <select id="paloDato">
+      <option value=""> Selecciona </option>
+      <option value="solea">Soleá</option>
+      <option value="alegrias">Alegrías</option>
+      <option value="bulerias">Bulerías</option>
+      <option value="tientos">Tientos</option>
+      <option value="tangos">Tangos</option>
+      <option value="seguidillas">Seguiriyas</option>
+      <option value="fandangos">Fandangos</option>
+    </select>
+
+    <label for="tipoDato">Dato:</label>
+    <select id="tipoDato">
+      <option value="palo">Palo</option>
+      <option value="compas">Compás</option>
+      <option value="tempo">Tempo</option>
+      <option value="letra">Tipo de letra</option>
+    </select>
+
+    <button id="btnDato">Mostrar dato</button>
+
+    <div id="resultadoDato"></div>
+  </div>
+
+  <div class="bloque">
+    <h2>Compas de 12 tiempos</h2>
+    <p>Mostrar num del 1 al 12 en negrita cuando el tiempo es fuerte (3, 6, 8, 10 y 12).</p>
+    <button id="btnCompas">Dibujar compás</button>
+    <div id="compas"></div>
+  </div>
+
+  <script>
+    const palos = {
+      solea: {
+        nombre: "Soleá",
+        compas: "12 tiempos",
+        tempo: "Lento",
+        letra: "Letra seria, sobre soledad y pena."
+      },
+      alegrias: {
+        nombre: "Alegrías",
+        compas: "12 tiempos",
+        tempo: "Vivo / alegre",
+        letra: "Letra festiva, amor, mar, Cádiz…"
+      },
+      bulerias: {
+        nombre: "Bulerías",
+        compas: "12 tiempos",
+        tempo: "Muy rápido",
+        letra: "Letra de fiesta, mucho juego e improvisación."
+      },
+      tientos: {
+        nombre: "Tientos",
+        compas: "4 tiempos (como tangos pero más lento)",
+        tempo: "Lento",
+        letra: "Cante serio y profundo."
+      },
+      tangos: {
+        nombre: "Tangos",
+        compas: "4 tiempos",
+        tempo: "Ritmo bailable",
+        letra: "Letras desenfadadas y de fiesta."
+      },
+      seguidillas: {
+        nombre: "Seguiriyas",
+        compas: "12 tiempos con acentos muy marcados",
+        tempo: "Lento",
+        letra: "Letra muy dramática: muerte, dolor, tragedia."
+      },
+      fandangos: {
+        nombre: "Fandangos",
+        compas: "Empieza libre y luego entra en ritmo",
+        tempo: "Libre / variable",
+        letra: "Temas variados: amor, campo, vivencias."
+      }
+    };
+
+    const selectTodo = document.getElementById("paloTodo");
+    const resultadoTodo = document.getElementById("resultadoTodo");
+
+    selectTodo.addEventListener("change", function() {
+      const clave = selectTodo.value;
+
+      if (clave === "") {
+        resultadoTodo.innerHTML = "<em>Selecciona un palo para ver su información.</em>";
+        return;
+      }
+
+      const p = palos[clave];
+
+      resultadoTodo.innerHTML =
+        "<p><strong>Palo:</strong> " + p.nombre + "</p>" +
+        "<p><strong>Compás:</strong> " + p.compas + "</p>" +
+        "<p><strong>Tempo:</strong> " + p.tempo + "</p>" +
+        "<p><strong>Tipo de letra:</strong> " + p.letra + "</p>";
+    });
+
+    const selectPaloDato = document.getElementById("paloDato");
+    const selectTipoDato = document.getElementById("tipoDato");
+    const btnDato = document.getElementById("btnDato");
+    const resultadoDato = document.getElementById("resultadoDato");
+
+    btnDato.addEventListener("click", function() {
+      const clave = selectPaloDato.value;
+      const tipo = selectTipoDato.value;
+
+      if (clave === "") {
+        resultadoDato.textContent = "Elige un palo primero.";
+        return;
+      }
+
+      const p = palos[clave];
+      let texto = "";
+
+      if (tipo === "palo") {
+        texto = "Palo: " + p.nombre;
+      } else if (tipo === "compas") {
+        texto = "Compás de " + p.nombre + ": " + p.compas;
+      } else if (tipo === "tempo") {
+        texto = "Tempo de " + p.nombre + ": " + p.tempo;
+      } else if (tipo === "letra") {
+        texto = "Tipo de letra de " + p.nombre + ": " + p.letra;
+      }
+
+      resultadoDato.textContent = texto;
+    });
+
+    const btnCompas = document.getElementById("btnCompas");
+    const compasDiv = document.getElementById("compas");
+
+    btnCompas.addEventListener("click", function() {
+      const fuertes = [3, 6, 8, 10, 12];
+      let html = "";
+
+      for (let i = 1; i <= 12; i++) {
+        if (fuertes.includes(i)) {
+          html += "<span class='num'><strong>" + i + "</strong></span>";
+        } else {
+          html += "<span class='num'>" + i + "</span>";
+        }
+        if (i < 12) {
+          html += ",";
+        }
+      }
+
+      compasDiv.innerHTML = html;
+    });
+  </script>
+</body>
+</html>

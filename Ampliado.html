@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios</title>
+</head>
+<body>
+    <h1>Ejercicios JavaScript</h1>
+
+    <!-- Ejercicio 1 -->
+    <h2>Ejercicio 1</h2>
+    <input type="number" id="a" placeholder="Número A">
+    <input type="number" id="b" placeholder="Número B">
+    <select id="tipo">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multi">Multiplicación</option>
+    </select>
+    <button onclick="ejercicio1()">Calcular</button>
+    <p>Resultado: <span id="res1"></span></p>
+
+    <!-- Ejercicio 2 -->
+    <h2>Ejercicio 2</h2>
+    <input type="number" id="fijo" placeholder="Número fijo">
+    <input type="number" id="otro" placeholder="Otro número">
+    <button onclick="ejercicio2()">Sumar</button>
+    <p>Resultado: <span id="res2"></span></p>
+
+    <!-- Ejercicio 3 -->
+    <h2>Ejercicio 3</h2>
+    <input type="text" id="texto" placeholder="Escribe un texto">
+    <button onclick="ejercicio3()">Validar</button>
+    <p>¿Tiene más de 10 caracteres?: <span id="res3"></span></p>
+
+    <!-- Ejercicio 4 -->
+    <h2>Ejercicio 4</h2>
+    <button onclick="ejercicio4()">Saludar</button>
+    <p><span id="res4"></span></p>
+
+    <script>
+        // Ejercicio 1
+        function operar(a, b, callback) {
+            return callback(a, b);
+        }
+
+        function suma(a, b) {
+            return a + b;
+        }
+
+        function resta(a, b) {
+            return a - b;
+        }
+
+        function multi(a, b) {
+            return a * b;
+        }
+
+        function ejercicio1() {
+            let a = Number(document.getElementById("a").value);
+            let b = Number(document.getElementById("b").value);
+            let tipo = document.getElementById("tipo").value;
+            let r;
+
+            if (tipo === "suma") {
+                r = operar(a, b, suma);
+            } else if (tipo === "resta") {
+                r = operar(a, b, resta);
+            } else {
+                r = operar(a, b, multi);
+            }
+
+            document.getElementById("res1").textContent = r;
+        }
+
+        // Ejercicio 2
+        function crearSumador(n) {
+            return function (x) {
+                return n + x;
+            }
+        }
+
+        function ejercicio2() {
+            let fijo = Number(document.getElementById("fijo").value);
+            let otro = Number(document.getElementById("otro").value);
+            let sumar = crearSumador(fijo);
+            let r = sumar(otro);
+            document.getElementById("res2").textContent = r;
+        }
+
+        // Ejercicio 3
+        const validar = function (texto) {
+            return texto.length > 10;
+        }
+
+        function ejercicio3() {
+            let t = document.getElementById("texto").value;
+            let ok = validar(t);
+            document.getElementById("res3").textContent = ok;
+        }
+
+        // Ejercicio 4
+        const greet = function () {
+            return "Hola";
+        }
+
+        function ejercicio4() {
+            document.getElementById("res4").textContent = greet();
+        }
+    </script>
+</body>
+</html>
